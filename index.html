@@ -24,10 +24,13 @@
 
   <div data-role="main" class="ui-content">
     <img src="media/logo.png" class="mainlogo"/><p>Python Touch is designed for students to write python code on a tablet computer</p><p>It's a very long way from finished yet...</p>
-  </div>
-
-  <div data-role="footer">
-    <h1>Keyboard</h1>
+    <h2>Credits</h2>
+    <div id="credits">
+    <p>Python touch is created by P. Dring primarily for use by students at <a href="http://www.manorceacademy.org/">Manor CE Academy</a> in York</p>
+    <p>Python touch uses <a href="http://www.skulpt.org/">Skulpt</a> which is released under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a></p>
+    <p>The text editor uses <a href="http://ace.c9.io">Ace</a> which is released under the <a href="http://opensource.org/licenses/BSD-2-Clause">BSD license</a></p>
+    <p>Python touch also uses <a href="https://jquery.org/license/">jQuery Mobile</a> which is released under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a></p>
+    </div>
   </div>
 </div> 
 
@@ -53,12 +56,61 @@
   </div>
   
   <div data-role="main" class="ui-content">
-    <div id="editor">print("Hello")</div>
+    <div id="editor">
+import turtle 
+
+print "Click on Drawing Canvas to see turtle graphics"
+
+draw = turtle.Turtle()
+draw.penup()
+
+draw.color("#3978AE")
+draw.goto(0,20)
+draw.write("Python")
+
+draw.color("#FFD344")
+draw.goto(0,0)
+draw.write("Touch")
+
+draw.goto(-30, -20)
+draw.pendown()
+draw.color("black")
+for i in range(2):
+    draw.forward(100)
+    draw.left(90)
+    draw.forward(70)
+    draw.left(90)
+    
+    </div>
   </div>
   
   <div data-role="footer">
-    <h1>Keyboard</h1>
-  </div>
+  	<div data-role="controlgroup" data-type="vertical">
+        <a id="btn_LeftArrow" class="ui-btn ui-icon-arrow-l ui-btn-icon-left">Move</a>
+        <a id="btn_RightArrow" class="ui-btn ui-icon-arrow-r ui-btn-icon-left">Move</a>
+        <a id="btn_UpArrow" class="ui-btn ui-icon-arrow-u ui-btn-icon-left">Move</a>
+<a id="btn_DownArrow" class="ui-btn ui-icon-arrow-d ui-btn-icon-left">Move</a>
+		<a class="ui-btn">(</a>
+        <a class="ui-btn">)</a>
+        <a class="ui-btn">[</a>
+        <a class="ui-btn">]</a>
+        <a class="ui-btn">{</a>
+        <a class="ui-btn">}</a>
+        <a class="ui-btn">#</a>
+        <a class="ui-btn">"</a>
+        <a class="ui-btn">'</a>
+        <a class="ui-btn">-</a>
+        <a class="ui-btn">=</a>
+        <a class="ui-btn">-</a>
+        <a id="btn_LeftIndent" href="#" class="ui-btn ui-icon-arrow-l ui-btn-icon-left">Tab</a>
+        <a id="btn_RightIndent" href="#" class="ui-btn ui-icon-arrow-r ui-btn-icon-left">Tab</a>
+        <a id="btn_LeftSelect" class="ui-btn ui-icon-arrow-l ui-btn-icon-left">Selection</a>
+        <a id="btn_RightSelect" class="ui-btn ui-icon-arrow-r ui-btn-icon-left">Selection</a>
+        <a id="btn_UpSelect" class="ui-btn ui-icon-arrow-u ui-btn-icon-left">Selection</a>
+		<a id="btn_DownSelect" class="ui-btn ui-icon-arrow-d ui-btn-icon-left">Selection</a>
+
+        </div>
+    </div>
 </div>
 
 <div data-role="page" id="run">
@@ -78,10 +130,6 @@
 	</div>
     <pre id="output">Python output:</pre>
     
-  </div>
-
-  <div data-role="footer">
-    <h1>Keyboard</h1>
   </div>
 </div> 
 
