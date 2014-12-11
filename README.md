@@ -1,6 +1,6 @@
 python-touch
 ============
-
+[!Python Touch logo](https://raw.githubusercontent.com/pddring/python-touch/master/media/logo.png)
 Python development environment optimised for touch screen devices
 
 This is a project in the very early stage of development.
