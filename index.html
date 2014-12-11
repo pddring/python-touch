@@ -1,0 +1,89 @@
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script src="lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="lib/lib.js" type="text/javascript" charset="utf-8"></script>
+<script src="lib/skulpt/skulpt.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="lib/skulpt/skulpt-stdlib.js" type="text/javascript" charset="utf-8"></script>
+
+<link rel="stylesheet" type="text/css" href="styles/main.css">
+</head>
+<body>
+<div data-role="page" id="home">
+  <div data-role="header">
+    <div data-role="navbar">
+      <ul>
+        <li><a href="#home" data-icon="home">Home</a></li>
+        <li><a href="#code" data-icon="gear">Code</a></li>
+        <li><a href="#" data-icon="arrow-r">My files</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div data-role="main" class="ui-content">
+    <img src="media/logo.png" class="mainlogo"/><p>Python Touch is designed for students to write python code on a tablet computer</p><p>It's a very long way from finished yet...</p>
+  </div>
+
+  <div data-role="footer">
+    <h1>Keyboard</h1>
+  </div>
+</div> 
+
+<div data-role="page" id="code">
+<div data-role="header">
+    <div data-role="navbar">
+      <ul>
+        <li><a href="#home" data-icon="home">Home</a></li>
+        <li><a href="#code" data-icon="gear">Code</a></li>
+        <li><a id="btn_Run" href="#run" data-icon="check" class="ui-btn">Run</a></li>
+        <li><a href="#settingsPanel" data-icon="arrow-r">Settings</a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div data-role="panel" id="settingsPanel" data-position="right">
+      <h2>Settings</h2>
+      <h3>Text size</h3>
+      <div data-role="controlgroup" data-type="vertical">
+  		<a id="btn_SmallerText" href="#" class="ui-btn ui-icon-minus ui-btn-icon-left">Smaller text</a>
+      	<a id="btn_LargerText" href="#" class="ui-btn ui-icon-plus ui-btn-icon-left">Larger text</a>
+      </div>
+  </div>
+  
+  <div data-role="main" class="ui-content">
+    <div id="editor">print("Hello")</div>
+  </div>
+  
+  <div data-role="footer">
+    <h1>Keyboard</h1>
+  </div>
+</div>
+
+<div data-role="page" id="run">
+  <div data-role="header">
+    <div data-role="navbar">
+      <ul>
+        <li><a href="#home" data-icon="home">Home</a></li>
+        <li><a href="#code" data-icon="gear">Code</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div data-role="main" class="ui-content">
+    <div data-role="collapsible">
+  		<h1>Drawing Canvas</h1>
+  		<canvas id="canvas"></canvas>
+	</div>
+    <pre id="output">Python output:</pre>
+    
+  </div>
+
+  <div data-role="footer">
+    <h1>Keyboard</h1>
+  </div>
+</div> 
+
+</body>
+</html>
