@@ -9,6 +9,7 @@
 	position:relative;
 	width: 100%;
 	height: 100px;
+	margin:0px;
 }
 
 #canvas {
@@ -19,3 +20,28 @@
 #credits {
 	font-size:smaller;
 }
+
+.ui-icon-copy {
+	background-image: url("images/icon-copy.png");
+	background-repeat: no-repeat;
+	background-position: 8px;
+}
+
+.ui-icon-cut {
+	background-image: url("images/icon-cut.png");
+	background-repeat: no-repeat;
+	background-position: 8px;
+}
+
+.ui-icon-paste {
+	background-image: url("images/icon-paste.png");
+	background-repeat: no-repeat;
+	background-position: 8px;
+}
+
+.ui-icon-backspace {
+	background-image: url("images/icon-backspace.png");
+	background-repeat: no-repeat;
+	background-position: 8px;
+}
+

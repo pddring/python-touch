@@ -1,8 +1,8 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
-<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<link rel="stylesheet" href="styles/jquerymobile.css">
+<script src="lib/jquery.js"></script>
+<script src="lib/jquerymobile.js"></script>
 <script src="lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
 <script src="lib/lib.js" type="text/javascript" charset="utf-8"></script>
 <script src="lib/skulpt/skulpt.min.js" type="text/javascript" charset="utf-8"></script>
@@ -17,7 +17,6 @@
       <ul>
         <li><a href="#home" data-icon="home">Home</a></li>
         <li><a href="#code" data-icon="gear">Code</a></li>
-        <li><a href="#" data-icon="arrow-r">My files</a></li>
       </ul>
     </div>
   </div>
@@ -38,6 +37,7 @@
 <div data-role="header">
     <div data-role="navbar">
       <ul>
+        <li><a href="#shortcutsPanel" data-icon="arrow-l">Shortcuts</a></li>
         <li><a href="#home" data-icon="home">Home</a></li>
         <li><a href="#code" data-icon="gear">Code</a></li>
         <li><a id="btn_Run" href="#run" data-icon="check" class="ui-btn">Run</a></li>
@@ -46,7 +46,7 @@
     </div>
   </div>
   
-  <div data-role="panel" id="settingsPanel" data-position="right">
+  <div data-role="panel" id="settingsPanel" data-display="overlay" data-position="right">
       <h2>Settings</h2>
       <h3>Text size</h3>
       <div data-role="controlgroup" data-type="vertical">
@@ -55,8 +55,94 @@
       </div>
   </div>
   
+  <div data-role="panel" id="shortcutsPanel">
+  	<div data-role="collapsible" data-mini="true">
+    	<h3>Cursor keys</h3>
+        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+			<a id="btn_LeftArrow" class="ui-btn ui-icon-arrow-l ui-btn-icon-left">Single</a>
+	        <a id="btn_RightArrow" class="ui-btn ui-icon-arrow-r ui-btn-icon-left">Single</a>
+        </div>
+        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+			<a id="btn_LeftArrowWord" class="ui-btn ui-icon-arrow-l ui-btn-icon-left">Word</a>
+	        <a id="btn_RightArrowWord" class="ui-btn ui-icon-arrow-r ui-btn-icon-left">Word</a>
+        </div>
+        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+			<a id="btn_LeftArrowLine" class="ui-btn ui-icon-arrow-l ui-btn-icon-left">Home</a>
+	        <a id="btn_RightArrowLine" class="ui-btn ui-icon-arrow-r ui-btn-icon-left">End</a>
+        </div>
+        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+    	    <a id="btn_UpArrow" class="ui-btn ui-icon-arrow-u ui-btn-icon-left">Line</a>
+			<a id="btn_DownArrow" class="ui-btn ui-icon-arrow-d ui-btn-icon-left">Line</a>
+		</div>
+    </div>
+    
+    <div data-role="collapsible" data-mini="true">
+    	<h3>Modify</h3>
+        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+            <a id="btn_Undo" href="#" class="ui-btn ui-icon-back ui-btn-icon-left">Undo</a>
+            <a id="btn_Redo" href="#" class="ui-btn ui-icon-forward ui-btn-icon-left">Redo</a>
+        </div>
+        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+            <a id="btn_LeftIndent" href="#" class="ui-btn ui-icon-arrow-l ui-btn-icon-left">Tab</a>
+            <a id="btn_RightIndent" href="#" class="ui-btn ui-icon-arrow-r ui-btn-icon-left">Tab</a>
+        </div>
+        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+            <a id="btn_Delete" href="#" class="ui-btn ui-btn-icon-left ui-icon-delete">Delete</a>
+            <a id="btn_Backspace" href="#" class="ui-btn ui-btn-icon-left ui-icon-backspace">Backspace</a>
+        </div>
+    </div>
+    
+    <div data-role="collapsible" data-mini="true">
+    	<h3>Special characters</h3>
+  		<div data-role="controlgroup" data-type="horizontal" data-mini="true">
+            <a class="ui-btn">(</a>
+            <a class="ui-btn">)</a>
+            <a class="ui-btn">[</a>
+            <a class="ui-btn">]</a>
+            <a class="ui-btn">{</a>
+            <a class="ui-btn">}</a>
+            <a class="ui-btn">#</a>
+            <a class="ui-btn">"</a>
+            <a class="ui-btn">'</a>
+            <a class="ui-btn">-</a>
+            <a class="ui-btn">=</a>
+            <a class="ui-btn">_</a>
+        </div>
+     </div>
+     <div data-role="collapsible" data-mini="true">
+    	<h3>Selection</h3>
+        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+            <a id="btn_LeftSelect" class="ui-btn ui-icon-arrow-l ui-btn-icon-left">Single</a>
+            <a id="btn_RightSelect" class="ui-btn ui-icon-arrow-r ui-btn-icon-left">Single</a>
+        </div>
+        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+            <a id="btn_LeftSelectWord" class="ui-btn ui-icon-arrow-l ui-btn-icon-left">Word</a>
+            <a id="btn_RightSelectWord" class="ui-btn ui-icon-arrow-r ui-btn-icon-left">Word</a>
+        </div>
+        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+			<a id="btn_LeftSelectLine" class="ui-btn ui-icon-arrow-l ui-btn-icon-left">Home</a>
+	        <a id="btn_RightSelectLine" class="ui-btn ui-icon-arrow-r ui-btn-icon-left">End</a>
+        </div>
+        
+        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+            <a id="btn_UpSelect" class="ui-btn ui-icon-arrow-u ui-btn-icon-left">Line</a>
+            <a id="btn_DownSelect" class="ui-btn ui-icon-arrow-d ui-btn-icon-left">Line</a>
+		</div>
+    </div>
+    <div data-role="collapsible" data-mini="true">
+    	<h3>Clipboard</h3>
+        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+        	<a id="btn_Copy" class="ui-btn ui-btn-icon-left ui-icon-copy">Copy</a>
+            <a id="btn_Cut" class="ui-btn ui-btn-icon-left ui-icon-cut">Cut</a>
+        </div>
+        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+            <a id="btn_Paste" class="ui-btn ui-btn-icon-left ui-icon-paste">Paste</a>
+        </div>
+    </div>
+  </div>
   <div data-role="main" class="ui-content">
-    <div id="editor">
+    <pre id="editor">
+# import turtle drawing module
 import turtle 
 
 print "Click on Drawing Canvas to see turtle graphics"
@@ -64,6 +150,7 @@ print "Click on Drawing Canvas to see turtle graphics"
 draw = turtle.Turtle()
 draw.penup()
 
+# draw text
 draw.color("#3978AE")
 draw.goto(0,20)
 draw.write("Python")
@@ -72,6 +159,7 @@ draw.color("#FFD344")
 draw.goto(0,0)
 draw.write("Touch")
 
+# draw shape
 draw.goto(-30, -20)
 draw.pendown()
 draw.color("black")
@@ -81,36 +169,10 @@ for i in range(2):
     draw.forward(70)
     draw.left(90)
     
-    </div>
+        </pre>
   </div>
   
-  <div data-role="footer">
-  	<div data-role="controlgroup" data-type="vertical">
-        <a id="btn_LeftArrow" class="ui-btn ui-icon-arrow-l ui-btn-icon-left">Move</a>
-        <a id="btn_RightArrow" class="ui-btn ui-icon-arrow-r ui-btn-icon-left">Move</a>
-        <a id="btn_UpArrow" class="ui-btn ui-icon-arrow-u ui-btn-icon-left">Move</a>
-<a id="btn_DownArrow" class="ui-btn ui-icon-arrow-d ui-btn-icon-left">Move</a>
-		<a class="ui-btn">(</a>
-        <a class="ui-btn">)</a>
-        <a class="ui-btn">[</a>
-        <a class="ui-btn">]</a>
-        <a class="ui-btn">{</a>
-        <a class="ui-btn">}</a>
-        <a class="ui-btn">#</a>
-        <a class="ui-btn">"</a>
-        <a class="ui-btn">'</a>
-        <a class="ui-btn">-</a>
-        <a class="ui-btn">=</a>
-        <a class="ui-btn">-</a>
-        <a id="btn_LeftIndent" href="#" class="ui-btn ui-icon-arrow-l ui-btn-icon-left">Tab</a>
-        <a id="btn_RightIndent" href="#" class="ui-btn ui-icon-arrow-r ui-btn-icon-left">Tab</a>
-        <a id="btn_LeftSelect" class="ui-btn ui-icon-arrow-l ui-btn-icon-left">Selection</a>
-        <a id="btn_RightSelect" class="ui-btn ui-icon-arrow-r ui-btn-icon-left">Selection</a>
-        <a id="btn_UpSelect" class="ui-btn ui-icon-arrow-u ui-btn-icon-left">Selection</a>
-		<a id="btn_DownSelect" class="ui-btn ui-icon-arrow-d ui-btn-icon-left">Selection</a>
-
-        </div>
-    </div>
+  
 </div>
 
 <div data-role="page" id="run">
