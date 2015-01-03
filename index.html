@@ -1,6 +1,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="styles/jquerymobile.css">
+<link rel="stylesheet" type="text/css" href="styles/main.css">
 <script src="lib/jquery.js"></script>
 <script src="lib/jquerymobile.js"></script>
 <script src="lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
@@ -8,7 +9,7 @@
 <script src="lib/skulpt/skulpt.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="lib/skulpt/skulpt-stdlib.js" type="text/javascript" charset="utf-8"></script>
 
-<link rel="stylesheet" type="text/css" href="styles/main.css">
+
 </head>
 <body>
 <div data-role="page" id="home">
@@ -139,7 +140,7 @@
             <a id="btn_Paste" class="ui-btn ui-btn-icon-left ui-icon-paste">Paste</a>
         </div>
     </div>
-  </div>
+</div>
   <div data-role="main" class="ui-content">
   	<div id="floating_shortcut""><a data-mini="true" data-role="button" href="#shortcutsPanel" data-icon="arrow-l">Shortcuts</a></div>
     <pre id="editor">
@@ -170,7 +171,7 @@ for i in range(2):
     draw.forward(70)
     draw.left(90)
     
-        </pre>
+</pre>
   </div>
   
   
@@ -182,12 +183,13 @@ for i in range(2):
       <ul>
         <li><a href="#home" data-icon="home">Home</a></li>
         <li><a href="#code" data-icon="gear">Code</a></li>
+        <li><a id="btn_ReRun" class="ui-btn" data-icon="forward">Re-run</a></li>
       </ul>
     </div>
   </div>
 
   <div data-role="main" class="ui-content">
-    <div data-role="collapsible">
+    <div data-role="collapsible" data-collapsed="false">
   		<h1>Drawing Canvas</h1>
   		<canvas id="canvas"></canvas>
 	</div>
