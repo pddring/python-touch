@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css" href="styles/main.css">
 </head>
 <body>
-<div data-role="page" class="page" id="home">
+<div data-role="page" id="home">
   <div data-role="header">
     <div data-role="navbar">
       <ul>
@@ -33,7 +33,7 @@
   </div>
 </div> 
 
-<div data-role="page" class="page" id="code">
+<div data-role="page" id="code">
 <div data-role="header">
     <div data-role="navbar">
       <ul>
@@ -55,7 +55,7 @@
       </div>
   </div>
   
-  <div data-role="panel" class="page" id="shortcutsPanel">
+  <div data-role="panel" id="shortcutsPanel">
   	<div data-role="collapsible" data-mini="true">
     	<h3>Cursor keys</h3>
         <div data-role="controlgroup" data-type="horizontal" data-mini="true">
@@ -141,7 +141,7 @@
     </div>
   </div>
   <div data-role="main" class="ui-content">
-  	<div id="floating_shortcut""><a data-role="button" href="#shortcutsPanel" data-icon="arrow-l"> </a></div>
+  	<div id="floating_shortcut""><a data-mini="true" data-role="button" href="#shortcutsPanel" data-icon="arrow-l">Shortcuts</a></div>
     <pre id="editor">
 # import turtle drawing module
 import turtle 
@@ -176,7 +176,7 @@ for i in range(2):
   
 </div>
 
-<div data-role="page" class="page" id="run">
+<div data-role="page" id="run">
   <div data-role="header">
     <div data-role="navbar">
       <ul>

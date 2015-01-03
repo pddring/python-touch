@@ -4,16 +4,6 @@
 	float:right;
 }
 
-.ui-header {
-	position: fixed;
-	top:0;
-	width: 100%;
-	z-index: 1000;
-	opacity: 0.8;
-}
-.page {
-	margin-top: 60px;
-}
 #editor { 
 	position:relative;
 	width: 100%;
@@ -59,12 +49,11 @@
 }
 
 #floating_shortcut {
-	background-color:#CCC;
 	position:relative;
-	border-radius: 5px;
 	margin-bottom:-50px;
+	height: 50px;
 	top:150px;
-	width: 40px;
+	width: 120px;
 	z-index: 1500;
 	opacity: 0.8;
 }
