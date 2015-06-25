@@ -54,7 +54,7 @@
         <li><a href="#shortcutsPanel" data-icon="arrow-l">Shortcuts</a></li>
         <li><a href="#home" data-icon="home">Home</a></li>
         <li><a href="#code" data-icon="gear">Code</a></li>
-        <li><a id="btn_Run" href="#run" data-icon="check" class="ui-btn">Run</a></li>
+        <li><a id="btn_Run" href="#run" data-icon="check">Run</a></li>        
         <li><a href="#settingsPanel" data-icon="arrow-r">Settings</a></li>
       </ul>
     </div>
@@ -196,12 +196,22 @@ for i in range(2):
       <ul>
         <li><a href="#home" data-icon="home">Home</a></li>
         <li><a href="#code" data-icon="gear">Code</a></li>
-        <li><a id="btn_ReRun" class="ui-btn" data-icon="forward">Re-run</a></li>
       </ul>
     </div>
   </div>
 
   <div data-role="main" class="ui-content">
+  	<div id="debug_holder" data-role="collapsible" data-collapsed="false">
+    <h1>Debugging</h1>
+	    <input type="button" class="btn" value="Run all lines" id="btn_Run" data-icon="forward" data-mini="true" data-inline="true">
+    	<input type="button" class="btn" value="Step" id="btn_DebugStep" data-icon="bullets" data-mini="true" data-inline="true">
+        <input type="button" class="btn" value="Reset" id="btn_DebugReset" data-icon="back" data-mini="true" data-inline="true">
+    	<span id="debug_status">Press run to start the program</span>
+    	<div id="debug_variables" data-role="collapsible" data-collapsed="false">
+        	<h2>Variables</h2>
+            <div id="debug_variables_table"></div>
+        </div>
+    </div>
     <div id="canvas_holder" data-role="collapsible" data-collapsed="true">
   		<h1>Drawing Canvas</h1>
   		<div id="canvas"></div>

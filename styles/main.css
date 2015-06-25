@@ -61,3 +61,32 @@
 .console_input {
 	color:#390;
 }
+
+.code {
+	font-family:"Courier New", Courier, monospace;
+	background-color:#FFF;
+	border-style:solid;
+	border-width:1px;
+	border-color:#000;
+	padding:5px;
+}
+
+.line_number {
+	background-color:#FF0;
+	padding:5px;
+	border-radius:5px;
+	font-size:small;
+}
+
+table, th, td {
+	border: 1px solid black;
+	padding:5px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th {
+    background-color: #EEE;
+}
