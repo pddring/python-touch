@@ -57,7 +57,7 @@
         <li><a href="#home" data-icon="home">Home</a></li>
         <li><a href="#code" data-icon="gear">Code</a></li>
         <li><a id="btn_Run" href="#run" data-icon="check">Run</a></li>        
-        <li><a href="#settingsPanel" data-icon="arrow-r">Settings</a></li>
+        <li><a href="#settingsPanel" data-icon="arrow-r">File / Settings</a></li>
       </ul>
     </div>
   </div>
@@ -69,15 +69,30 @@
   		<a id="btn_SmallerText" href="#" class="ui-btn ui-icon-minus ui-btn-icon-left">Smaller text</a>
       	<a id="btn_LargerText" href="#" class="ui-btn ui-icon-plus ui-btn-icon-left">Larger text</a>
       </div>
+      <h2>File management</h2>
+      <h3>Save</h3>
+      <div data-role="controlgroup" data-type="vertical">
+          <input class="btn" id="btn_save"type="button" value="Save" data-icon="arrow-d">
+          <input class="btn" id="btn_saveAs"type="button" value="Save As" data-icon="arrow-d">
+      </div>
+      <h3>Load</h3>
+      <div data-role="controlgroup" data-type="vertical">
+	      <input class="btn" id="btn_load"type="button" value="Load" data-icon="arrow-u">
+          <input class="btn" id="btn_reset"type="button" value="Reset" data-icon="back">
+      </div>
   </div>
   
   <div data-role="panel" id="shortcutsPanel">
+	<div data-role="collapsible" data-mini="true">
+    	<h3>Debug</h3>
+      	<div data-role="controlgroup" data-type="horizontal" data-mini="true">
+    	
+        	<a id="btn_dbgReset" class="ui-btn ui-icon-back ui-btn-icon-left">Reset</a>
+            <a id="btn_dbgStep" class="ui-btn ui-icon-arrow-r ui-btn-icon-left">Step</a>
+        </div>
+    </div>
   	<div data-role="collapsible" data-mini="true">
     	<h3>Cursor keys</h3>
-        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
-			<a id="btn_LeftArrow" class="ui-btn ui-icon-arrow-l ui-btn-icon-left">Single</a>
-	        <a id="btn_RightArrow" class="ui-btn ui-icon-arrow-r ui-btn-icon-left">Single</a>
-        </div>
         <div data-role="controlgroup" data-type="horizontal" data-mini="true">
 			<a id="btn_LeftArrowWord" class="ui-btn ui-icon-arrow-l ui-btn-icon-left">Word</a>
 	        <a id="btn_RightArrowWord" class="ui-btn ui-icon-arrow-r ui-btn-icon-left">Word</a>
@@ -157,7 +172,10 @@
     </div>
 </div>
   <div data-role="main" class="ui-content">
-  	<div id="floating_shortcut""><a data-mini="true" data-role="button" href="#shortcutsPanel" data-icon="arrow-l">Shortcuts</a></div>
+  	<div id="floating_shortcut" data-role="controlgroup" data-type="horizontal">
+    <a data-mini="true" class="ui-btn ui-icon-gear ui-btn-icon-left" href="#shortcutsPanel" data-icon="arrow-l" data-inline-"true"></a>
+    <a id="btn_LeftArrow" class="ui-btn ui-icon-arrow-l ui-btn-icon-left" data-mini="true" data-inline="true"></a>
+	<a id="btn_RightArrow" data-mini="true" data-inline="true" class="ui-btn ui-icon-arrow-r ui-btn-icon-left"></a></div>
     <pre id="editor">
 # import turtle drawing module
 import turtle 
@@ -187,6 +205,16 @@ for i in range(2):
     draw.left(90)
     
 </pre>
+<div id="code_output_holder">
+	<label for="chk_embed_output">Output</label>
+	<select id="chk_embed_output" data-role="flipswitch" data-mini="true">
+    	<option value="hide">Hide</option>
+        <option value="show">Show</option>
+    </select>
+    <div id="code_output_parent">
+    </div>
+</div>
+
   </div>
   
   
@@ -208,17 +236,26 @@ for i in range(2):
 	    <input type="button" class="btn" value="Run all lines" id="btn_Run" data-icon="forward" data-mini="true" data-inline="true">
     	<input type="button" class="btn" value="Step" id="btn_DebugStep" data-icon="bullets" data-mini="true" data-inline="true">
         <input type="button" class="btn" value="Reset" id="btn_DebugReset" data-icon="back" data-mini="true" data-inline="true">
-    	<span id="debug_status">Press run to start the program</span>
+    	<span id="debug_status">Press "Run all lines" to start the program</span>
     	<div id="debug_variables" data-role="collapsible" data-collapsed="false">
         	<h2>Variables</h2>
             <div id="debug_variables_table"></div>
         </div>
     </div>
-    <div id="canvas_holder" data-role="collapsible" data-collapsed="true">
-  		<h1>Drawing Canvas</h1>
-  		<div id="canvas"></div>
-	</div>
-    <pre id="output">Python output:</pre>
+    
+    <div id="output_holder">
+    <div id="output_sections">
+    
+            <div id="canvas_holder" data-role="collapsible" data-collapsed="true">
+                <h1>Drawing Canvas</h1>
+                <div id="canvas"></div>
+            </div>
+            <div id="console_output" data-role="collapsible" data-collapsed="false">
+                <h1>Console Output</h1>
+                <pre id="output">Python output:</pre>
+            </div>
+        </div>
+    </div>
     
   </div>
 </div> 
