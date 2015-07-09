@@ -77,32 +77,42 @@
       </div>
       <h3>Load</h3>
       <div data-role="controlgroup" data-type="vertical">
-	      <input class="btn" id="btn_load"type="button" value="Load" data-icon="arrow-u">
-          <input class="btn" id="btn_reset"type="button" value="Reset" data-icon="back">
+	      <input class="btn" id="btn_load" type="button" value="Load" data-icon="arrow-u">
+          <input class="btn" id="btn_reset" type="button" value="Reset" data-icon="back">
       </div>
   </div>
   
   <div data-role="panel" id="shortcutsPanel">
+  <small>Tick the checkboxes to add the shortcuts to the floating toolbar</small>
 	<div data-role="collapsible" data-mini="true">
     	<h3>Debug</h3>
+        
       	<div data-role="controlgroup" data-type="horizontal" data-mini="true">
-    	
         	<a id="btn_dbgReset" class="ui-btn ui-icon-back ui-btn-icon-left">Reset</a>
             <a id="btn_dbgStep" class="ui-btn ui-icon-arrow-r ui-btn-icon-left">Step</a>
+            <div class="chk_shortcut"><input type="checkbox" id="chk_shortcut_debug" value="Show in floating panel" data-mini="true" data-inline="true"></div>
         </div>
     </div>
   	<div data-role="collapsible" data-mini="true">
     	<h3>Cursor keys</h3>
         <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+            <div class="chk_shortcut"><input type="checkbox" id="chk_shortcut_arrow_keys" value="Show in floating panel" data-mini="true" data-inline="true"></div>
+            <a id="btn_LeftArrow" class="ui-btn ui-icon-arrow-l ui-btn-icon-left" data-mini="true" data-inline="true">Left</a>
+            <a id="btn_RightArrow" data-mini="true" data-inline="true" class="ui-btn ui-icon-arrow-r ui-btn-icon-left">Right</a>
+        </div>
+        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+        	<div class="chk_shortcut"><input type="checkbox" id="chk_shortcut_word_cursor" value="Show in floating panel" data-mini="true" data-inline="true"></div>
 			<a id="btn_LeftArrowWord" class="ui-btn ui-icon-arrow-l ui-btn-icon-left">Word</a>
 	        <a id="btn_RightArrowWord" class="ui-btn ui-icon-arrow-r ui-btn-icon-left">Word</a>
         </div>
         <div data-role="controlgroup" data-type="horizontal" data-mini="true">
-			<a id="btn_LeftArrowLine" class="ui-btn ui-icon-arrow-l ui-btn-icon-left">Home</a>
+			<div class="chk_shortcut"><input type="checkbox" id="chk_shortcut_cursor_home" value="Show in floating panel" data-mini="true" data-inline="true"></div>
+            <a id="btn_LeftArrowLine" class="ui-btn ui-icon-arrow-l ui-btn-icon-left">Home</a>
 	        <a id="btn_RightArrowLine" class="ui-btn ui-icon-arrow-r ui-btn-icon-left">End</a>
         </div>
         <div data-role="controlgroup" data-type="horizontal" data-mini="true">
-    	    <a id="btn_UpArrow" class="ui-btn ui-icon-arrow-u ui-btn-icon-left">Line</a>
+    	    <div class="chk_shortcut"><input type="checkbox" id="chk_shortcut_cursor_up" value="Show in floating panel" data-mini="true" data-inline="true"></div>
+            <a id="btn_UpArrow" class="ui-btn ui-icon-arrow-u ui-btn-icon-left">Line</a>
 			<a id="btn_DownArrow" class="ui-btn ui-icon-arrow-d ui-btn-icon-left">Line</a>
 		</div>
     </div>
@@ -110,14 +120,17 @@
     <div data-role="collapsible" data-mini="true">
     	<h3>Modify</h3>
         <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+            <div class="chk_shortcut"><input type="checkbox" id="chk_shortcut_undo" value="Show in floating panel" data-mini="true" data-inline="true"></div>
             <a id="btn_Undo" href="#" class="ui-btn ui-icon-back ui-btn-icon-left">Undo</a>
             <a id="btn_Redo" href="#" class="ui-btn ui-icon-forward ui-btn-icon-left">Redo</a>
         </div>
         <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+            <div class="chk_shortcut"><input type="checkbox" id="chk_shortcut_indent" value="Show in floating panel" data-mini="true" data-inline="true"></div>
             <a id="btn_LeftIndent" href="#" class="ui-btn ui-icon-arrow-l ui-btn-icon-left">Tab</a>
             <a id="btn_RightIndent" href="#" class="ui-btn ui-icon-arrow-r ui-btn-icon-left">Tab</a>
         </div>
         <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+            <div class="chk_shortcut"><input type="checkbox" id="chk_shortcut_delete" value="Show in floating panel" data-mini="true" data-inline="true"></div>
             <a id="btn_Delete" href="#" class="ui-btn ui-btn-icon-left ui-icon-delete">Delete</a>
             <a id="btn_Backspace" href="#" class="ui-btn ui-btn-icon-left ui-icon-backspace">Backspace</a>
         </div>
@@ -126,6 +139,7 @@
     <div data-role="collapsible" data-mini="true">
     	<h3>Special characters</h3>
   		<div data-role="controlgroup" data-type="horizontal" data-mini="true">
+            <div class="chk_shortcut"><input type="checkbox" id="chk_shortcut_special_keys" value="Show in floating panel" data-mini="true" data-inline="true"></div>
             <a class="ui-btn">(</a>
             <a class="ui-btn">)</a>
             <a class="ui-btn">[</a>
@@ -143,19 +157,23 @@
      <div data-role="collapsible" data-mini="true">
     	<h3>Selection</h3>
         <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+            <div class="chk_shortcut"><input type="checkbox" id="chk_shortcut_select_left" value="Show in floating panel" data-mini="true" data-inline="true"></div>
             <a id="btn_LeftSelect" class="ui-btn ui-icon-arrow-l ui-btn-icon-left">Single</a>
             <a id="btn_RightSelect" class="ui-btn ui-icon-arrow-r ui-btn-icon-left">Single</a>
         </div>
         <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+            <div class="chk_shortcut"><input type="checkbox" id="chk_shortcut_select_word" value="Show in floating panel" data-mini="true" data-inline="true"></div>
             <a id="btn_LeftSelectWord" class="ui-btn ui-icon-arrow-l ui-btn-icon-left">Word</a>
             <a id="btn_RightSelectWord" class="ui-btn ui-icon-arrow-r ui-btn-icon-left">Word</a>
         </div>
         <div data-role="controlgroup" data-type="horizontal" data-mini="true">
-			<a id="btn_LeftSelectLine" class="ui-btn ui-icon-arrow-l ui-btn-icon-left">Home</a>
+			<div class="chk_shortcut"><input type="checkbox" id="chk_shortcut_select_home" value="Show in floating panel" data-mini="true" data-inline="true"></div>
+            <a id="btn_LeftSelectLine" class="ui-btn ui-icon-arrow-l ui-btn-icon-left">Home</a>
 	        <a id="btn_RightSelectLine" class="ui-btn ui-icon-arrow-r ui-btn-icon-left">End</a>
         </div>
         
         <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+            <div class="chk_shortcut"><input type="checkbox" id="chk_shortcut_select_up" value="Show in floating panel" data-mini="true" data-inline="true"></div>
             <a id="btn_UpSelect" class="ui-btn ui-icon-arrow-u ui-btn-icon-left">Line</a>
             <a id="btn_DownSelect" class="ui-btn ui-icon-arrow-d ui-btn-icon-left">Line</a>
 		</div>
@@ -163,19 +181,20 @@
     <div data-role="collapsible" data-mini="true">
     	<h3>Clipboard</h3>
         <div data-role="controlgroup" data-type="horizontal" data-mini="true">
-        	<a id="btn_Copy" class="ui-btn ui-btn-icon-left ui-icon-copy">Copy</a>
+        	<div class="chk_shortcut"><input type="checkbox" id="chk_shortcut_copy" value="Show in floating panel" data-mini="true" data-inline="true"></div>
+            <a id="btn_Copy" class="ui-btn ui-btn-icon-left ui-icon-copy">Copy</a>
             <a id="btn_Cut" class="ui-btn ui-btn-icon-left ui-icon-cut">Cut</a>
         </div>
         <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+            <div class="chk_shortcut"><input type="checkbox" id="chk_shortcut_paste" value="Show in floating panel" data-mini="true" data-inline="true"></div>
             <a id="btn_Paste" class="ui-btn ui-btn-icon-left ui-icon-paste">Paste</a>
         </div>
     </div>
 </div>
   <div data-role="main" class="ui-content">
   	<div id="floating_shortcut" data-role="controlgroup" data-type="horizontal">
-    <a data-mini="true" class="ui-btn ui-icon-gear ui-btn-icon-left" href="#shortcutsPanel" data-icon="arrow-l" data-inline-"true"></a>
-    <a id="btn_LeftArrow" class="ui-btn ui-icon-arrow-l ui-btn-icon-left" data-mini="true" data-inline="true"></a>
-	<a id="btn_RightArrow" data-mini="true" data-inline="true" class="ui-btn ui-icon-arrow-r ui-btn-icon-left"></a></div>
+    <a data-mini="true" class="fsc ui-btn ui-icon-gear ui-btn-icon-left" href="#shortcutsPanel" id="fsc_btn_shortcuts" data-inline="true">&nbsp;</a>
+    </div>
     <pre id="editor">
 # import turtle drawing module
 import turtle 
@@ -207,10 +226,7 @@ for i in range(2):
 </pre>
 <div id="code_output_holder">
 	<label for="chk_embed_output">Output</label>
-	<select id="chk_embed_output" data-role="flipswitch" data-mini="true">
-    	<option value="hide">Hide</option>
-        <option value="show">Show</option>
-    </select>
+	<input type="checkbox" id="chk_embed_output" data-mini="true">
     <div id="code_output_parent">
     </div>
 </div>
