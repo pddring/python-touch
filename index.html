@@ -24,7 +24,10 @@
   </div>
 
   <div data-role="main" class="ui-content">
-    <img src="media/logo.png" class="mainlogo" id="mainlogo"/><p>Python Touch is designed for students to write python code on a tablet computer</p><p>It's a very long way from finished yet...</p>
+    <img src="media/logo.png" class="mainlogo" id="mainlogo"/><p>Python Touch is designed for students to write python code on a tablet computer</p>
+    <p>It's a very long way from finished yet...</p>
+    <h3>Have a look at some of these samples</h3>
+    <div id="sample1" class="sample">Draw</div>
     <h2>Credits</h2>
     <div id="credits">
     <p>Python touch is created by P. Dring primarily for use by students at <a href="http://www.manorceacademy.org/">Manor CE Academy</a> in York</p>
@@ -73,12 +76,15 @@
       <h3>Save</h3>
       <div data-role="controlgroup" data-type="vertical">
           <input class="btn" id="btn_save"type="button" value="Save" data-icon="arrow-d">
-          <input class="btn" id="btn_saveAs"type="button" value="Save As" data-icon="arrow-d">
+          <input class="btn" id="btn_saveAs"type="button" value="Download" data-icon="arrow-d">
+          <input class="btn" id="btn_saveAsImage"type="button" value="Hide in image" data-icon="arrow-d">
       </div>
       <h3>Load</h3>
       <div data-role="controlgroup" data-type="vertical">
 	      <input class="btn" id="btn_load" type="button" value="Load" data-icon="arrow-u">
+          <input class="btn" id="btn_loadFromImage" type="button" value="Read from image" data-icon="arrow-u">
           <input class="btn" id="btn_reset" type="button" value="Reset" data-icon="back">
+          
       </div>
   </div>
   
@@ -234,6 +240,42 @@ for i in range(2):
   </div>
   
   
+</div>
+
+<div data-role="page" id="saveImage">
+	<div data-role="header">
+        <div data-role="navbar">
+          <ul>
+            <li><a href="#home" data-icon="home">Home</a></li>
+            <li><a href="#code" data-icon="gear">Code</a></li>
+          </ul>
+        </div>
+    </div>
+    Choose a photo to embed your code inside:
+    <input id="imgSaveAs" type="file"  name="image" accept="image/*" capture>
+    <div id="img_preview">
+    	<p>Source image (no code hidden inside):</p>
+        <img id="img_data_src" src="media/logo.png" class="img_preview"/>
+    	<p>Image with your code hidden inside (save and share):</p>
+    	<img id="img_data_dest" src="media/logo.png" class="img_preview"/>
+    </div>
+</div>
+
+<div data-role="page" id="loadImage">
+	<div data-role="header">
+        <div data-role="navbar">
+          <ul>
+            <li><a href="#home" data-icon="home">Home</a></li>
+            <li><a href="#code" data-icon="gear">Code</a></li>
+          </ul>
+        </div>
+    </div>
+    Choose a photo with embedded code:
+    <input id="imgLoad" type="file"  name="image" accept="image/*" capture>
+    <div id="img_preview_load">
+        <img id="img_data_load" class="img_preview"/>
+        <div id="img_load_status">Upload an image with code hidden inside it</div>
+    </div>
 </div>
 
 <div data-role="page" id="run">
