@@ -251,13 +251,15 @@ for i in range(2):
           </ul>
         </div>
     </div>
-    Choose a photo to embed your code inside:
-    <input id="imgSaveAs" type="file"  name="image" accept="image/*">
-    <div id="img_preview">
-    	<p>Source image (no code hidden inside):</p>
-        <img id="img_data_src" src="media/logo.png" class="img_preview"/>
-    	<p>Image with your code hidden inside (save and share):</p>
-    	<img id="img_data_dest" src="media/logo.png" class="img_preview"/>
+    <div class="center">
+        Choose a photo to embed your code inside:
+        <input id="imgSaveAs" type="file"  name="image" accept="image/*">
+        <div id="img_preview">
+            <h3>Source image (no code hidden inside):</h3>
+            <img id="img_data_src" src="media/logo.png" class="img_preview"/>
+            <h3>Image with your code hidden inside (save and share):</h3>
+            <img id="img_data_dest" class="img_preview"/>
+        </div>
     </div>
 </div>
 
@@ -270,11 +272,13 @@ for i in range(2):
           </ul>
         </div>
     </div>
-    Choose a photo with embedded code:
-    <input id="imgLoad" type="file"  name="image" accept="image/*">
-    <div id="img_preview_load">
-        <img id="img_data_load" class="img_preview"/>
-        <div id="img_load_status">Upload an image with code hidden inside it</div>
+    <div class="center">
+        Choose a photo with embedded code:
+        <input id="imgLoad" type="file"  name="image" accept="image/*">
+        <div id="img_preview_load">
+            <img id="img_data_load" class="img_preview"/>
+            <div id="img_load_status">Upload an image with code hidden inside it</div>
+        </div>
     </div>
 </div>
 
