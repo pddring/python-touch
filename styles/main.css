@@ -138,3 +138,10 @@ th {
 .center {
 	text-align:center;
 }
+
+.sample {
+	font-size:xx-small;
+	background-color:#EEE;
+	padding:10px;
+	border-radius:10px;
+}

@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="styles/jquerymobile.css">
@@ -15,7 +16,7 @@
 <body>
 <div data-role="page" id="home">
   <div data-role="header">
-    <div data-role="navbar">
+    <div data-role="navbar" id="tabs">
       <ul>
         <li><a href="#home" data-icon="home">Home</a></li>
         <li><a href="#code" data-icon="gear">Code</a></li>
@@ -26,8 +27,275 @@
   <div data-role="main" class="ui-content">
     <img src="media/logo.png" class="mainlogo" id="mainlogo"/><p>Python Touch is designed for students to write python code on a tablet computer</p>
     <p>It's a very long way from finished yet...</p>
-    <h3>Have a look at some of these samples</h3>
-    <div id="sample1" class="sample">Draw</div>
+    <h3>These samples are designed to cover the <a href="http://www.aqa.org.uk/subjects/ict-and-computer-science/gcse/computer-science-8520">AQA GCSE Computer Science (from 2016)</a></h3>
+    <ul data-role="listview" class="ui-listview-outer" data-inset="true">
+    	<li data-role="collapsible" data-iconpos="right" data-shadow="true" data-corners="true">
+            <h2>Quick Start</h2>
+            <ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
+                <li><input id="sample_hello_world" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+                Hello World
+<pre class="sample" id="code_sample_hello_world">
+# use print to display messages
+
+print("Hello world")
+</pre>
+                </li>
+                
+                <li><input id="sample_draw" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+                Draw
+<pre class="sample" id="code_sample_draw">
+# import turtle drawing module
+import turtle 
+
+print "Click on Drawing Canvas to see turtle graphics"
+
+draw = turtle.Turtle()
+draw.penup()
+
+# draw text
+draw.color("#3978AE")
+draw.goto(0,20)
+draw.write("Python")
+
+draw.color("#FFD344")
+draw.goto(0,0)
+draw.write("Touch")
+
+# draw shape
+draw.goto(-30, -20)
+draw.pendown()
+draw.color("black")
+for i in range(2):
+    draw.forward(100)
+    draw.left(90)
+    draw.forward(70)
+    draw.left(90)
+</pre>
+</li>
+
+<li><input id="sample_chatbot" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+Chat bot
+<pre class="sample" id="code_sample_chatbot">
+# Template for a chatbot - a simple program that asks you questions and responds
+
+print("Hello! My name is chatbot")
+
+name = input("What's your name?")
+print("Hi " + name)
+
+age = int(input("How old are you?"))
+if age > 100:
+	print("Really? That's pretty old!")
+else:
+    difference = 100 - age
+    print("You'll be 100 in " + str(difference) + " years")
+    
+# add your own questions here 
+
+</pre>
+</li>
+            </ul>
+        </li>
+        <li data-role="collapsible" data-iconpos="right" data-shadow="true" data-corners="true">
+            <h2>Data Types</h2>
+            <ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
+
+<li><input id="sample_integer" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+Integer
+<pre class="sample" id="code_sample_integer">
+# integers are whole numbers (not fractions or decimals)
+
+print("These are integers (whole numbers)")
+
+print(1)
+print(10)
+print(33)
+
+</pre>
+</li>
+
+<li><input id="sample_real" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+Real
+<pre class="sample" id="code_sample_real">
+# Real numbers can contain decimal places (e.g. 3.141)
+# Python calls reals floats or floating point numbers
+
+print("These are reals (floating point or decimal numbers)")
+print(1.45)
+print(3.1412)
+print(1.0)
+</pre>
+</li>
+
+
+<li><input id="sample_boolean" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+Boolean
+<pre class="sample" id="code_sample_boolean">
+# Boolean means either True or False - nothing else.
+
+print("These are booleans")
+print(True)
+print(False)
+</pre>
+</li>
+
+<li><input id="sample_character" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+Character
+<pre class="sample" id="code_sample_character">
+# A character is one letter or symbol
+# In python there's no difference between the data type that stores one character or lots of characters: they're both stored in strings.
+
+print("These are characters (single letters or digits)")
+
+# Note that you can use either single quotes ' or double quotes " as long as you use the same one either side of the character.
+print("A")
+print("1")
+print("*")
+print('"')
+</pre>
+</li>
+
+<li><input id="sample_string" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+String
+<pre class="sample" id="code_sample_string">
+# A string is one or more letter or symbol
+# In python there's no difference between the data type that stores one character or lots of characters: they're both stored in strings.
+
+print("These are strings (one or more characters)")
+print("Hello")
+print("Howdi")
+
+# notice that this next one is still a string even though it looks like a number. It's a string because it's surrounded by quotation marks.
+print("12345")
+</pre>
+</li>
+            </ul>
+         </li>
+         
+         <li data-role="collapsible" data-iconpos="right" data-shadow="true" data-corners="true">
+            <h2>Programming Concepts</h2>
+            <ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
+                <li><input id="sample_variable_declaration" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+                Variable declaration
+                </li>
+                <pre class="sample" id="code_sample_variable_declaration">
+""" 
+Variables store data that might change while the program runs.
+Variables in python should be given a suitable name that describes the data stored inside. 
+Choosing variable names carefully (rather than variable1 or thingy) makes your code easier to understand. 
+You should follow the PEP8 convention for choosing variable names: lowercase_words_separated_by_underscores
+"""
+# integer variable
+age = 8
+
+# real variable
+top_speed = 4.32
+
+# boolean variable
+hungry = True
+
+# character variable
+key_to_quit = "Q"
+
+# string variable
+user_name = "Bob"
+
+# display the variables
+print "Integer variable:", age
+print "Real variable:", top_speed
+print "Boolean variable:", hungry
+print "Character variable:", key_to_quit
+print "String variable:", user_name
+
+                </pre>
+                
+                <li><input id="sample_constant_declaration" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+                Constant declaration
+                </li>
+                <pre class="sample" id="code_sample_constant_declaration">
+""" 
+Constants store data that you set in your code and never change while the program runs.
+Constants in python should be given a suitable name that describes the data stored inside. 
+Choosing constant names carefully (rather than variable1 or thingy) makes your code easier to understand. 
+You should follow the PEP8 convention for choosing constant names: UPPERCASE_SEPARATED_BY_UNDERSCORES
+"""
+# integer constant
+AGE = 8
+
+# real constant
+TOP_SPEED = 4.32
+
+# boolean constant
+HUNGRY = True
+
+# character constant
+KEY_TO_QUIT = "Q"
+
+# string constant
+USER_NAME = "Bob"
+
+# display the constants
+print "Integer constant:", AGE
+print "Real constant:", TOP_SPEED
+print "Boolean constant:", HUNGRY
+print "Character constant:", KEY_TO_QUIT
+print "String constant:", USER_NAME
+                </pre>
+                
+                <li><input id="sample_assignment" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+                Assignment
+                </li>
+                <pre class="sample" id="code_sample_assignment">
+# watch this space
+                </pre>
+                
+                <li><input id="sample_definite_iteration" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+                Definite iteration
+                </li>
+                <pre class="sample" id="code_sample_definite_iteration">
+# watch this space
+                </pre>
+                
+                <li><input id="sample_indefinite_iteration" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+                Indefinite iteration
+                </li>
+                <pre class="sample" id="code_sample_indefinite_iteration">
+# watch this space
+                </pre>
+                
+                <li><input id="sample_nested_iteration" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+                Nested iteration
+                </li>
+                <pre class="sample" id="code_sample_nested_iteration">
+# watch this space
+                </pre>
+                
+                <li><input id="sample_selection" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+                Selection
+                </li>
+                <pre class="sample" id="code_sample_selection">
+# watch this space
+                </pre>
+                
+                <li><input id="sample_constant_nested_selection" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+                Nexted selection
+                </li>
+                <pre class="sample" id="code_sample_nested_selection">
+# watch this space
+                </pre>
+                
+                <li><input id="sample_subroutine" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+                Subroutine
+                </li>
+                <pre class="sample" id="code_sample_subroutine">
+# watch this space
+                </pre>
+             </ul>
+                
+                
+         </li>
+    </ul>
+    
     <h2>Credits</h2>
     <div id="credits">
     <p>Python touch is created by P. Dring primarily for use by students at <a href="http://www.manorceacademy.org/">Manor CE Academy</a> in York</p>
@@ -45,7 +313,6 @@
      data-ad-format="auto"></ins>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
 </script>
 </div>
     </div>
@@ -75,9 +342,9 @@
       <h2>File management</h2>
       <h3>Save</h3>
       <div data-role="controlgroup" data-type="vertical">
-          <input class="btn" id="btn_save"type="button" value="Save" data-icon="arrow-d">
-          <input class="btn" id="btn_saveAs"type="button" value="Download" data-icon="arrow-d">
-          <input class="btn" id="btn_saveAsImage"type="button" value="Hide in image" data-icon="arrow-d">
+          <input class="btn" id="btn_save" type="button" value="Save" data-icon="arrow-d">
+          <input class="btn" id="btn_saveAs" type="button" value="Download" data-icon="arrow-d">
+          <input class="btn" id="btn_saveAsImage" type="button" value="Hide in image" data-icon="arrow-d">
       </div>
       <h3>Load</h3>
       <div data-role="controlgroup" data-type="vertical">
