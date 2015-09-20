@@ -50,12 +50,23 @@
 
 #floating_shortcut {
 	position:relative;
-	margin-bottom:-50px;
-	height: 50px;
+	margin-bottom:-30px;
+	height: 30px;
 	top:150px;
-	width: 120px;
 	z-index: 1500;
 	opacity: 0.8;
+	border-radius:10px;
+	background-color:#FFF;
+	border-style:solid;
+	background-color:#FFF;
+	display:inline-block;
+	font-size:small;
+	text-align:center;
+	border-width:1px;
+	box-shadow: 10px 10px 5px rgba(0,0,0,0.5);
+}
+#floating_shortcut:hover{
+	opacity:1.0;
 }
 
 .console_input {
@@ -72,7 +83,12 @@
 }
 
 .line_number {
+<<<<<<< HEAD
 	background-color:#FF0;
+=======
+	background-color:#FFF;
+	border:thin #000;
+>>>>>>> gh-pages
 	padding:5px;
 	border-radius:5px;
 	font-size:small;
@@ -89,4 +105,50 @@ table {
 
 th {
     background-color: #EEE;
+<<<<<<< HEAD
+=======
+}
+
+.var_name {
+	font-family:"Courier New", Courier, monospace;
+}
+
+.var_name_link {
+	background-color:#6FF;
+	border-radius:5px;
+}
+#code_output_holder:hover {
+	opacity:1.0;
+}
+
+#code_output_holder {
+	position:fixed;
+	top:70px;
+	right:20px;
+	z-index:4000;
+	opacity:0.6;
+	padding:10px;
+	border-radius:10px;
+	background-color:#FFF;
+	border-style:solid;
+	border-width:1px;
+	border-color:#000;
+	box-shadow: 10px 10px 5px rgba(0,0,0,0.5);
+}
+.chk_shortcut {
+	float:right;
+}
+.fsc {
+	font-size:10px;
+}
+.center {
+	text-align:center;
+}
+
+.sample {
+	font-size:xx-small;
+	background-color:#EEE;
+	padding:10px;
+	border-radius:10px;
+>>>>>>> gh-pages
 }

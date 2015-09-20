@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="styles/jquerymobile.css">
@@ -7,6 +8,7 @@
 <script src="lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
 <script src="lib/lib.js" type="text/javascript" charset="utf-8"></script>
 <script src="lib/skulpt/skulpt.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="lib/steganography.js" type="text/javascript" charset="utf-8"></script>
 <script src="lib/skulpt/skulpt-stdlib.js" type="text/javascript" charset="utf-8"></script>
 
 
@@ -14,7 +16,7 @@
 <body>
 <div data-role="page" id="home">
   <div data-role="header">
-    <div data-role="navbar">
+    <div data-role="navbar" id="tabs">
       <ul>
         <li><a href="#home" data-icon="home">Home</a></li>
         <li><a href="#code" data-icon="gear">Code</a></li>
@@ -23,13 +25,287 @@
   </div>
 
   <div data-role="main" class="ui-content">
-    <img src="media/logo.png" class="mainlogo"/><p>Python Touch is designed for students to write python code on a tablet computer</p><p>It's a very long way from finished yet...</p>
+    <img src="media/logo.png" class="mainlogo" id="mainlogo"/><p>Python Touch is designed for students to write python code on a tablet computer</p>
+    <p>It's a very long way from finished yet...</p>
+    <h3>These samples are designed to cover the <a href="http://www.aqa.org.uk/subjects/ict-and-computer-science/gcse/computer-science-8520">AQA GCSE Computer Science (from 2016)</a></h3>
+    <ul data-role="listview" class="ui-listview-outer" data-inset="true">
+    	<li data-role="collapsible" data-iconpos="right" data-shadow="true" data-corners="true">
+            <h2>Quick Start</h2>
+            <ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
+                <li><input id="sample_hello_world" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+                Hello World
+<pre class="sample" id="code_sample_hello_world">
+# use print to display messages
+
+print("Hello world")
+</pre>
+                </li>
+                
+                <li><input id="sample_draw" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+                Draw
+<pre class="sample" id="code_sample_draw">
+# import turtle drawing module
+import turtle 
+
+print "Click on Drawing Canvas to see turtle graphics"
+
+draw = turtle.Turtle()
+draw.penup()
+
+# draw text
+draw.color("#3978AE")
+draw.goto(0,20)
+draw.write("Python")
+
+draw.color("#FFD344")
+draw.goto(0,0)
+draw.write("Touch")
+
+# draw shape
+draw.goto(-30, -20)
+draw.pendown()
+draw.color("black")
+for i in range(2):
+    draw.forward(100)
+    draw.left(90)
+    draw.forward(70)
+    draw.left(90)
+</pre>
+</li>
+
+<li><input id="sample_chatbot" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+Chat bot
+<pre class="sample" id="code_sample_chatbot">
+# Template for a chatbot - a simple program that asks you questions and responds
+
+print("Hello! My name is chatbot")
+
+name = input("What's your name?")
+print("Hi " + name)
+
+age = int(input("How old are you?"))
+if age > 100:
+	print("Really? That's pretty old!")
+else:
+    difference = 100 - age
+    print("You'll be 100 in " + str(difference) + " years")
+    
+# add your own questions here 
+
+</pre>
+</li>
+            </ul>
+        </li>
+        <li data-role="collapsible" data-iconpos="right" data-shadow="true" data-corners="true">
+            <h2>Data Types</h2>
+            <ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
+
+<li><input id="sample_integer" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+Integer
+<pre class="sample" id="code_sample_integer">
+# integers are whole numbers (not fractions or decimals)
+
+print("These are integers (whole numbers)")
+
+print(1)
+print(10)
+print(33)
+
+</pre>
+</li>
+
+<li><input id="sample_real" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+Real
+<pre class="sample" id="code_sample_real">
+# Real numbers can contain decimal places (e.g. 3.141)
+# Python calls reals floats or floating point numbers
+
+print("These are reals (floating point or decimal numbers)")
+print(1.45)
+print(3.1412)
+print(1.0)
+</pre>
+</li>
+
+
+<li><input id="sample_boolean" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+Boolean
+<pre class="sample" id="code_sample_boolean">
+# Boolean means either True or False - nothing else.
+
+print("These are booleans")
+print(True)
+print(False)
+</pre>
+</li>
+
+<li><input id="sample_character" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+Character
+<pre class="sample" id="code_sample_character">
+# A character is one letter or symbol
+# In python there's no difference between the data type that stores one character or lots of characters: they're both stored in strings.
+
+print("These are characters (single letters or digits)")
+
+# Note that you can use either single quotes ' or double quotes " as long as you use the same one either side of the character.
+print("A")
+print("1")
+print("*")
+print('"')
+</pre>
+</li>
+
+<li><input id="sample_string" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+String
+<pre class="sample" id="code_sample_string">
+# A string is one or more letter or symbol
+# In python there's no difference between the data type that stores one character or lots of characters: they're both stored in strings.
+
+print("These are strings (one or more characters)")
+print("Hello")
+print("Howdi")
+
+# notice that this next one is still a string even though it looks like a number. It's a string because it's surrounded by quotation marks.
+print("12345")
+</pre>
+</li>
+            </ul>
+         </li>
+         
+         <li data-role="collapsible" data-iconpos="right" data-shadow="true" data-corners="true">
+            <h2>Programming Concepts</h2>
+            <ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
+                <li><input id="sample_variable_declaration" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+                Variable declaration
+                </li>
+                <pre class="sample" id="code_sample_variable_declaration">
+""" 
+Variables store data that might change while the program runs.
+Variables in python should be given a suitable name that describes the data stored inside. 
+Choosing variable names carefully (rather than variable1 or thingy) makes your code easier to understand. 
+You should follow the PEP8 convention for choosing variable names: lowercase_words_separated_by_underscores
+"""
+# integer variable
+age = 8
+
+# real variable
+top_speed = 4.32
+
+# boolean variable
+hungry = True
+
+# character variable
+key_to_quit = "Q"
+
+# string variable
+user_name = "Bob"
+
+# display the variables
+print "Integer variable:", age
+print "Real variable:", top_speed
+print "Boolean variable:", hungry
+print "Character variable:", key_to_quit
+print "String variable:", user_name
+
+                </pre>
+                
+                <li><input id="sample_constant_declaration" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+                Constant declaration
+                </li>
+                <pre class="sample" id="code_sample_constant_declaration">
+""" 
+Constants store data that you set in your code and never change while the program runs.
+Constants in python should be given a suitable name that describes the data stored inside. 
+Choosing constant names carefully (rather than variable1 or thingy) makes your code easier to understand. 
+You should follow the PEP8 convention for choosing constant names: UPPERCASE_SEPARATED_BY_UNDERSCORES
+"""
+# integer constant
+AGE = 8
+
+# real constant
+TOP_SPEED = 4.32
+
+# boolean constant
+HUNGRY = True
+
+# character constant
+KEY_TO_QUIT = "Q"
+
+# string constant
+USER_NAME = "Bob"
+
+# display the constants
+print "Integer constant:", AGE
+print "Real constant:", TOP_SPEED
+print "Boolean constant:", HUNGRY
+print "Character constant:", KEY_TO_QUIT
+print "String constant:", USER_NAME
+                </pre>
+                
+                <li><input id="sample_assignment" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+                Assignment
+                </li>
+                <pre class="sample" id="code_sample_assignment">
+# watch this space
+                </pre>
+                
+                <li><input id="sample_definite_iteration" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+                Definite iteration
+                </li>
+                <pre class="sample" id="code_sample_definite_iteration">
+# watch this space
+                </pre>
+                
+                <li><input id="sample_indefinite_iteration" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+                Indefinite iteration
+                </li>
+                <pre class="sample" id="code_sample_indefinite_iteration">
+# watch this space
+                </pre>
+                
+                <li><input id="sample_nested_iteration" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+                Nested iteration
+                </li>
+                <pre class="sample" id="code_sample_nested_iteration">
+# watch this space
+                </pre>
+                
+                <li><input id="sample_selection" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+                Selection
+                </li>
+                <pre class="sample" id="code_sample_selection">
+# watch this space
+                </pre>
+                
+                <li><input id="sample_constant_nested_selection" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+                Nexted selection
+                </li>
+                <pre class="sample" id="code_sample_nested_selection">
+# watch this space
+                </pre>
+                
+                <li><input id="sample_subroutine" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+                Subroutine
+                </li>
+                <pre class="sample" id="code_sample_subroutine">
+# watch this space
+                </pre>
+             </ul>
+                
+                
+         </li>
+    </ul>
+    
     <h2>Credits</h2>
     <div id="credits">
     <p>Python touch is created by P. Dring primarily for use by students at <a href="http://www.manorceacademy.org/">Manor CE Academy</a> in York</p>
     <p>Python touch uses <a href="http://www.skulpt.org/">Skulpt</a> which is released under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a></p>
     <p>The text editor uses <a href="http://ace.c9.io">Ace</a> which is released under the <a href="http://opensource.org/licenses/BSD-2-Clause">BSD license</a></p>
     <p>Python touch also uses <a href="https://jquery.org/license/">jQuery Mobile</a> which is released under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a></p>
+<<<<<<< HEAD
+=======
+    <p>The ability to load / save code hidden in an image uses the <a href="http://www.peter-eigenschink.at/projects/steganographyjs/">steganography</a> library by Peter Eigenschink which is released under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT</a> and <a href="http://en.wikipedia.org/wiki/Beerware">Beerware</a> licence.</p>
+>>>>>>> gh-pages
     <div id="ad">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- Python touch -->
@@ -41,7 +317,10 @@
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
+<<<<<<< HEAD
 </script>
+=======
+>>>>>>> gh-pages
 </div>
     </div>
   </div>
@@ -55,7 +334,11 @@
         <li><a href="#home" data-icon="home">Home</a></li>
         <li><a href="#code" data-icon="gear">Code</a></li>
         <li><a id="btn_Run" href="#run" data-icon="check">Run</a></li>        
+<<<<<<< HEAD
         <li><a href="#settingsPanel" data-icon="arrow-r">Settings</a></li>
+=======
+        <li><a href="#settingsPanel" data-icon="arrow-r">File / Settings</a></li>
+>>>>>>> gh-pages
       </ul>
     </div>
   </div>
@@ -67,25 +350,53 @@
   		<a id="btn_SmallerText" href="#" class="ui-btn ui-icon-minus ui-btn-icon-left">Smaller text</a>
       	<a id="btn_LargerText" href="#" class="ui-btn ui-icon-plus ui-btn-icon-left">Larger text</a>
       </div>
+      <h2>File management</h2>
+      <h3>Save</h3>
+      <div data-role="controlgroup" data-type="vertical">
+          <input class="btn" id="btn_save" type="button" value="Save" data-icon="arrow-d">
+          <input class="btn" id="btn_saveAs" type="button" value="Download" data-icon="arrow-d">
+          <input class="btn" id="btn_saveAsImage" type="button" value="Hide in image" data-icon="arrow-d">
+      </div>
+      <h3>Load</h3>
+      <div data-role="controlgroup" data-type="vertical">
+	      <input class="btn" id="btn_load" type="button" value="Load" data-icon="arrow-u">
+          <input class="btn" id="btn_loadFromImage" type="button" value="Read from image" data-icon="arrow-u">
+          <input class="btn" id="btn_reset" type="button" value="Reset" data-icon="back">
+          
+      </div>
   </div>
   
   <div data-role="panel" id="shortcutsPanel">
+  <small>Tick the checkboxes to add the shortcuts to the floating toolbar</small>
+	<div data-role="collapsible" data-mini="true">
+    	<h3>Debug</h3>
+        
+      	<div data-role="controlgroup" data-type="horizontal" data-mini="true">
+        	<a id="btn_dbgReset" class="ui-btn ui-icon-back ui-btn-icon-left">Reset</a>
+            <a id="btn_dbgStep" class="ui-btn ui-icon-arrow-r ui-btn-icon-left">Step</a>
+            <div class="chk_shortcut"><input type="checkbox" id="chk_shortcut_debug" value="Show in floating panel" data-mini="true" data-inline="true"></div>
+        </div>
+    </div>
   	<div data-role="collapsible" data-mini="true">
     	<h3>Cursor keys</h3>
         <div data-role="controlgroup" data-type="horizontal" data-mini="true">
-			<a id="btn_LeftArrow" class="ui-btn ui-icon-arrow-l ui-btn-icon-left">Single</a>
-	        <a id="btn_RightArrow" class="ui-btn ui-icon-arrow-r ui-btn-icon-left">Single</a>
+            <div class="chk_shortcut"><input type="checkbox" id="chk_shortcut_arrow_keys" value="Show in floating panel" data-mini="true" data-inline="true"></div>
+            <a id="btn_LeftArrow" class="ui-btn ui-icon-arrow-l ui-btn-icon-left" data-mini="true" data-inline="true">Left</a>
+            <a id="btn_RightArrow" data-mini="true" data-inline="true" class="ui-btn ui-icon-arrow-r ui-btn-icon-left">Right</a>
         </div>
         <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+        	<div class="chk_shortcut"><input type="checkbox" id="chk_shortcut_word_cursor" value="Show in floating panel" data-mini="true" data-inline="true"></div>
 			<a id="btn_LeftArrowWord" class="ui-btn ui-icon-arrow-l ui-btn-icon-left">Word</a>
 	        <a id="btn_RightArrowWord" class="ui-btn ui-icon-arrow-r ui-btn-icon-left">Word</a>
         </div>
         <div data-role="controlgroup" data-type="horizontal" data-mini="true">
-			<a id="btn_LeftArrowLine" class="ui-btn ui-icon-arrow-l ui-btn-icon-left">Home</a>
+			<div class="chk_shortcut"><input type="checkbox" id="chk_shortcut_cursor_home" value="Show in floating panel" data-mini="true" data-inline="true"></div>
+            <a id="btn_LeftArrowLine" class="ui-btn ui-icon-arrow-l ui-btn-icon-left">Home</a>
 	        <a id="btn_RightArrowLine" class="ui-btn ui-icon-arrow-r ui-btn-icon-left">End</a>
         </div>
         <div data-role="controlgroup" data-type="horizontal" data-mini="true">
-    	    <a id="btn_UpArrow" class="ui-btn ui-icon-arrow-u ui-btn-icon-left">Line</a>
+    	    <div class="chk_shortcut"><input type="checkbox" id="chk_shortcut_cursor_up" value="Show in floating panel" data-mini="true" data-inline="true"></div>
+            <a id="btn_UpArrow" class="ui-btn ui-icon-arrow-u ui-btn-icon-left">Line</a>
 			<a id="btn_DownArrow" class="ui-btn ui-icon-arrow-d ui-btn-icon-left">Line</a>
 		</div>
     </div>
@@ -93,14 +404,17 @@
     <div data-role="collapsible" data-mini="true">
     	<h3>Modify</h3>
         <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+            <div class="chk_shortcut"><input type="checkbox" id="chk_shortcut_undo" value="Show in floating panel" data-mini="true" data-inline="true"></div>
             <a id="btn_Undo" href="#" class="ui-btn ui-icon-back ui-btn-icon-left">Undo</a>
             <a id="btn_Redo" href="#" class="ui-btn ui-icon-forward ui-btn-icon-left">Redo</a>
         </div>
         <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+            <div class="chk_shortcut"><input type="checkbox" id="chk_shortcut_indent" value="Show in floating panel" data-mini="true" data-inline="true"></div>
             <a id="btn_LeftIndent" href="#" class="ui-btn ui-icon-arrow-l ui-btn-icon-left">Tab</a>
             <a id="btn_RightIndent" href="#" class="ui-btn ui-icon-arrow-r ui-btn-icon-left">Tab</a>
         </div>
         <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+            <div class="chk_shortcut"><input type="checkbox" id="chk_shortcut_delete" value="Show in floating panel" data-mini="true" data-inline="true"></div>
             <a id="btn_Delete" href="#" class="ui-btn ui-btn-icon-left ui-icon-delete">Delete</a>
             <a id="btn_Backspace" href="#" class="ui-btn ui-btn-icon-left ui-icon-backspace">Backspace</a>
         </div>
@@ -109,6 +423,7 @@
     <div data-role="collapsible" data-mini="true">
     	<h3>Special characters</h3>
   		<div data-role="controlgroup" data-type="horizontal" data-mini="true">
+            <div class="chk_shortcut"><input type="checkbox" id="chk_shortcut_special_keys" value="Show in floating panel" data-mini="true" data-inline="true"></div>
             <a class="ui-btn">(</a>
             <a class="ui-btn">)</a>
             <a class="ui-btn">[</a>
@@ -126,19 +441,23 @@
      <div data-role="collapsible" data-mini="true">
     	<h3>Selection</h3>
         <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+            <div class="chk_shortcut"><input type="checkbox" id="chk_shortcut_select_left" value="Show in floating panel" data-mini="true" data-inline="true"></div>
             <a id="btn_LeftSelect" class="ui-btn ui-icon-arrow-l ui-btn-icon-left">Single</a>
             <a id="btn_RightSelect" class="ui-btn ui-icon-arrow-r ui-btn-icon-left">Single</a>
         </div>
         <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+            <div class="chk_shortcut"><input type="checkbox" id="chk_shortcut_select_word" value="Show in floating panel" data-mini="true" data-inline="true"></div>
             <a id="btn_LeftSelectWord" class="ui-btn ui-icon-arrow-l ui-btn-icon-left">Word</a>
             <a id="btn_RightSelectWord" class="ui-btn ui-icon-arrow-r ui-btn-icon-left">Word</a>
         </div>
         <div data-role="controlgroup" data-type="horizontal" data-mini="true">
-			<a id="btn_LeftSelectLine" class="ui-btn ui-icon-arrow-l ui-btn-icon-left">Home</a>
+			<div class="chk_shortcut"><input type="checkbox" id="chk_shortcut_select_home" value="Show in floating panel" data-mini="true" data-inline="true"></div>
+            <a id="btn_LeftSelectLine" class="ui-btn ui-icon-arrow-l ui-btn-icon-left">Home</a>
 	        <a id="btn_RightSelectLine" class="ui-btn ui-icon-arrow-r ui-btn-icon-left">End</a>
         </div>
         
         <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+            <div class="chk_shortcut"><input type="checkbox" id="chk_shortcut_select_up" value="Show in floating panel" data-mini="true" data-inline="true"></div>
             <a id="btn_UpSelect" class="ui-btn ui-icon-arrow-u ui-btn-icon-left">Line</a>
             <a id="btn_DownSelect" class="ui-btn ui-icon-arrow-d ui-btn-icon-left">Line</a>
 		</div>
@@ -146,16 +465,20 @@
     <div data-role="collapsible" data-mini="true">
     	<h3>Clipboard</h3>
         <div data-role="controlgroup" data-type="horizontal" data-mini="true">
-        	<a id="btn_Copy" class="ui-btn ui-btn-icon-left ui-icon-copy">Copy</a>
+        	<div class="chk_shortcut"><input type="checkbox" id="chk_shortcut_copy" value="Show in floating panel" data-mini="true" data-inline="true"></div>
+            <a id="btn_Copy" class="ui-btn ui-btn-icon-left ui-icon-copy">Copy</a>
             <a id="btn_Cut" class="ui-btn ui-btn-icon-left ui-icon-cut">Cut</a>
         </div>
         <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+            <div class="chk_shortcut"><input type="checkbox" id="chk_shortcut_paste" value="Show in floating panel" data-mini="true" data-inline="true"></div>
             <a id="btn_Paste" class="ui-btn ui-btn-icon-left ui-icon-paste">Paste</a>
         </div>
     </div>
 </div>
   <div data-role="main" class="ui-content">
-  	<div id="floating_shortcut""><a data-mini="true" data-role="button" href="#shortcutsPanel" data-icon="arrow-l">Shortcuts</a></div>
+  	<div id="floating_shortcut" data-role="controlgroup" data-type="horizontal">
+    <a data-mini="true" class="fsc ui-btn ui-icon-gear ui-btn-icon-left" href="#shortcutsPanel" id="fsc_btn_shortcuts" data-inline="true">&nbsp;</a>
+    </div>
     <pre id="editor">
 # import turtle drawing module
 import turtle 
@@ -185,9 +508,56 @@ for i in range(2):
     draw.left(90)
     
 </pre>
+<div id="code_output_holder">
+	<label for="chk_embed_output">Output</label>
+	<input type="checkbox" id="chk_embed_output" data-mini="true">
+    <div id="code_output_parent">
+    </div>
+</div>
+
   </div>
   
   
+</div>
+
+<div data-role="page" id="saveImage">
+	<div data-role="header">
+        <div data-role="navbar">
+          <ul>
+            <li><a href="#home" data-icon="home">Home</a></li>
+            <li><a href="#code" data-icon="gear">Code</a></li>
+          </ul>
+        </div>
+    </div>
+    <div class="center">
+        Choose a photo to embed your code inside:
+        <input id="imgSaveAs" type="file"  name="image" accept="image/*">
+        <div id="img_preview">
+            <h3>Source image (no code hidden inside):</h3>
+            <img id="img_data_src" src="media/logo.png" class="img_preview"/>
+            <h3>Image with your code hidden inside (save and share):</h3>
+            <img id="img_data_dest" class="img_preview"/>
+        </div>
+    </div>
+</div>
+
+<div data-role="page" id="loadImage">
+	<div data-role="header">
+        <div data-role="navbar">
+          <ul>
+            <li><a href="#home" data-icon="home">Home</a></li>
+            <li><a href="#code" data-icon="gear">Code</a></li>
+          </ul>
+        </div>
+    </div>
+    <div class="center">
+        Choose a photo with embedded code:
+        <input id="imgLoad" type="file"  name="image" accept="image/*">
+        <div id="img_preview_load">
+            <img id="img_data_load" class="img_preview"/>
+            <div id="img_load_status">Upload an image with code hidden inside it</div>
+        </div>
+    </div>
 </div>
 
 <div data-role="page" id="run">
@@ -206,17 +576,38 @@ for i in range(2):
 	    <input type="button" class="btn" value="Run all lines" id="btn_Run" data-icon="forward" data-mini="true" data-inline="true">
     	<input type="button" class="btn" value="Step" id="btn_DebugStep" data-icon="bullets" data-mini="true" data-inline="true">
         <input type="button" class="btn" value="Reset" id="btn_DebugReset" data-icon="back" data-mini="true" data-inline="true">
+<<<<<<< HEAD
     	<span id="debug_status">Press run to start the program</span>
+=======
+    	<span id="debug_status">Press "Run all lines" to start the program</span>
+>>>>>>> gh-pages
     	<div id="debug_variables" data-role="collapsible" data-collapsed="false">
         	<h2>Variables</h2>
             <div id="debug_variables_table"></div>
         </div>
     </div>
+<<<<<<< HEAD
     <div id="canvas_holder" data-role="collapsible" data-collapsed="true">
   		<h1>Drawing Canvas</h1>
   		<div id="canvas"></div>
 	</div>
     <pre id="output">Python output:</pre>
+=======
+    
+    <div id="output_holder">
+    <div id="output_sections">
+    
+            <div id="canvas_holder" data-role="collapsible" data-collapsed="true">
+                <h1>Drawing Canvas</h1>
+                <div id="canvas"></div>
+            </div>
+            <div id="console_output" data-role="collapsible" data-collapsed="false">
+                <h1>Console Output</h1>
+                <pre id="output">Python output:</pre>
+            </div>
+        </div>
+    </div>
+>>>>>>> gh-pages
     
   </div>
 </div> 
