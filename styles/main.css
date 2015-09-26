@@ -83,12 +83,8 @@
 }
 
 .line_number {
-<<<<<<< HEAD
-	background-color:#FF0;
-=======
 	background-color:#FFF;
 	border:thin #000;
->>>>>>> gh-pages
 	padding:5px;
 	border-radius:5px;
 	font-size:small;
@@ -105,8 +101,6 @@ table {
 
 th {
     background-color: #EEE;
-<<<<<<< HEAD
-=======
 }
 
 .var_name {
@@ -150,13 +144,9 @@ th {
 	background-color:#EEE;
 	padding:10px;
 	border-radius:10px;
-<<<<<<< HEAD
->>>>>>> gh-pages
-=======
 	display:none;
 }
 
 #quick_run_options {
 	display:none;
->>>>>>> gh-pages
 }
