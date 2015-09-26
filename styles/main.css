@@ -144,4 +144,9 @@ th {
 	background-color:#EEE;
 	padding:10px;
 	border-radius:10px;
+	display:none;
+}
+
+#quick_run_options {
+	display:none;
 }

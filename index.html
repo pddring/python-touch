@@ -44,32 +44,15 @@ print("Hello world")
                 <li><input id="sample_draw" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
                 Draw
 <pre class="sample" id="code_sample_draw">
-# import turtle drawing module
-import turtle 
+# procedure to say hello to a given person
+def say_hello(name):
+    print "Hello " + name
+    
+# loop through each name in the list and say hello
+for name in ["Anna", "Ben", "Charlie", "Dilbert"]:
+    say_hello(name)
+    
 
-print "Click on Drawing Canvas to see turtle graphics"
-
-draw = turtle.Turtle()
-draw.penup()
-
-# draw text
-draw.color("#3978AE")
-draw.goto(0,20)
-draw.write("Python")
-
-draw.color("#FFD344")
-draw.goto(0,0)
-draw.write("Touch")
-
-# draw shape
-draw.goto(-30, -20)
-draw.pendown()
-draw.color("black")
-for i in range(2):
-    draw.forward(100)
-    draw.left(90)
-    draw.forward(70)
-    draw.left(90)
 </pre>
 </li>
 
@@ -246,50 +229,146 @@ print "String constant:", USER_NAME
                 Assignment
                 </li>
                 <pre class="sample" id="code_sample_assignment">
-# watch this space
+# Assignment means setting the value of a variable.
+# This means that the variable stores that value so it can be used or changed later.
+
+# Assign (store) the real number 3.141 into a constant called PI
+PI = 3.141
+
+# assign the integer number 10 to a variable called radius
+radius = 10
+
+# calculate the area (pi times radius squared) and assign it to a variable called area
+area = PI * radius * radius
+
+print area
+
+
                 </pre>
                 
                 <li><input id="sample_definite_iteration" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
                 Definite iteration
                 </li>
                 <pre class="sample" id="code_sample_definite_iteration">
-# watch this space
+# Iteration means looping through each of multiple values
+# Definite iteration means you know in advance exactly how many times the loop will repeat.
+
+# Display each letter of the alphabet
+for letter in "abcdefghijklmnopqrstuvwxyz":
+	print letter
+    
+# Display each number between 1 and 10
+for i in [1,2,3,4,5,6,7,8,9,10]:
+	print i
+    
+# Display each number between 1 and 100
+for i in range(100):
+	print i
                 </pre>
                 
                 <li><input id="sample_indefinite_iteration" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
                 Indefinite iteration
                 </li>
                 <pre class="sample" id="code_sample_indefinite_iteration">
-# watch this space
+# Iteration means looping (repeating) multiple times
+# Indefinite iteration means you don't know in advance exactly how many times the loop will repeat
+
+# keep looping until the user types "exit"
+while raw_input("Type exit to quit") != "exit":
+	print("OK, I'll keep looping")
                 </pre>
                 
                 <li><input id="sample_nested_iteration" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
                 Nested iteration
                 </li>
                 <pre class="sample" id="code_sample_nested_iteration">
-# watch this space
-                </pre>
+# iteration means repeating some code multiple times.
+# Nested iteration means having a loop within a loop
+
+# make a list containing each day of the week
+days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+
+# outer loop: iterate through days of the week
+for day in days:
+	
+    # inner loop: iterate through each of the hours in a day
+    for hour in range(24):
+    
+    	print day, hour, ": 00"
+</pre>
+                
                 
                 <li><input id="sample_selection" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
                 Selection
                 </li>
                 <pre class="sample" id="code_sample_selection">
-# watch this space
+# Selection happens when your program makes a choice between doing one thing or another.
+# In python, "if" lets you run code based on the answer to a question / condition.
+
+# choose a random number 
+import random
+random_number = str(random.randint(1,10))
+
+# let the user guess
+guess = raw_input("I've chosen a random number between 1 and 10. Guess what it is")
+
+# does the user's guess match the random number?
+if random_number == guess:
+	print "Correct!"
+else:
+	print "Wrong: I guessed " + random_number
                 </pre>
                 
-                <li><input id="sample_constant_nested_selection" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+                <li><input id="sample_nested_selection" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
                 Nexted selection
                 </li>
                 <pre class="sample" id="code_sample_nested_selection">
-# watch this space
+# Selection means making your code only run if a condition is met.
+# Nested selection means an if statement inside an if statement - checking to see if two conditions are met.
+
+str_number = raw_input("Please enter a number over 100")
+if str_number.isdigit():
+    int_number = int(str_number) 
+    
+    # nested selection: "if" inside an "if"
+    if int_number > 100:
+    	print "Thank you"
+    else:
+    	print "The number must be over 100"
+else:
+	print "You must type in a number"
                 </pre>
                 
                 <li><input id="sample_subroutine" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
                 Subroutine
                 </li>
                 <pre class="sample" id="code_sample_subroutine">
-# watch this space
-                </pre>
+# A subroutine is a section of code that you can re-use more than once. This makes your code more efficient as you end up writing less code.
+# You have to give each subroutine a name. This can help your code be more readable.
+
+# import the turtle module to draw shapes
+import turtle
+t = turtle.Turtle()
+
+# define a procedure (subroutine) called draw_square
+def draw_square(x, y, size):
+    
+    # move to x, y
+    t.penup()
+    t.goto(x,y)
+    t.pendown()
+    
+    # draw the square
+    for i in range(4):
+        t.forward(size)
+        t.right(90)
+        
+# call the subroutine to draw a square at (0,0)
+draw_square(0, 0, 10)
+
+# call the subroute again, drawing a square at (100,100)
+draw_square(100,100, 30)
+</pre>
              </ul>
                 
                 
@@ -303,6 +382,7 @@ print "String constant:", USER_NAME
     <p>The text editor uses <a href="http://ace.c9.io">Ace</a> which is released under the <a href="http://opensource.org/licenses/BSD-2-Clause">BSD license</a></p>
     <p>Python touch also uses <a href="https://jquery.org/license/">jQuery Mobile</a> which is released under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a></p>
     <p>The ability to load / save code hidden in an image uses the <a href="http://www.peter-eigenschink.at/projects/steganographyjs/">steganography</a> library by Peter Eigenschink which is released under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT</a> and <a href="http://en.wikipedia.org/wiki/Beerware">Beerware</a> licence.</p>
+    
     <div id="ad">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- Python touch -->
@@ -326,7 +406,18 @@ print "String constant:", USER_NAME
         <li><a href="#shortcutsPanel" data-icon="arrow-l">Shortcuts</a></li>
         <li><a href="#home" data-icon="home">Home</a></li>
         <li><a href="#code" data-icon="gear">Code</a></li>
-        <li><a id="btn_Run" href="#run" data-icon="check">Run</a></li>        
+        <li><a id="btn_RunPanel" href="#run" data-icon="check">Run</a>
+            <span id="quick_run_options">
+            <select id="quick_run_action">
+               <option value="run_all">Run whole program</option>
+               <option value="run_step">Step one line</option>
+               <option value="run_animate_1">Animate (slow)</option>
+               <option value="run_animate_2">Animate (normal)</option>
+               <option value="run_animate_3">Animate (fast)</option>
+               <option value="run_reset">Reset</option>
+            </select>
+            </span>
+        </li>        
         <li><a href="#settingsPanel" data-icon="arrow-r">File / Settings</a></li>
       </ul>
     </div>
@@ -498,8 +589,9 @@ for i in range(2):
     
 </pre>
 <div id="code_output_holder">
-	<label for="chk_embed_output">Output</label>
+	<label for="chk_embed_output">Quick Output</label>
 	<input type="checkbox" id="chk_embed_output" data-mini="true">
+    
     <div id="code_output_parent">
     </div>
 </div>
