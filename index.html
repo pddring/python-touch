@@ -25,6 +25,18 @@
   </div>
 
   <div data-role="main" class="ui-content">
+  <div id="ad">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Python touch -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3910402064044077"
+     data-ad-slot="8642424001"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
     <img src="media/logo.png" class="mainlogo" id="mainlogo"/><p>Python Touch is designed for students to write python code on a tablet computer</p>
     <p>It's a very long way from finished yet...</p>
     <h3>These samples are designed to cover the <a href="http://www.aqa.org.uk/subjects/ict-and-computer-science/gcse/computer-science-8520">AQA GCSE Computer Science (from 2016)</a></h3>
@@ -86,7 +98,9 @@ else:
 <li><input id="sample_integer" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
 Integer
 <pre class="sample" id="code_sample_integer">
-# integers are whole numbers (not fractions or decimals)
+print """
+integers are whole numbers (not fractions or decimals)
+"""
 
 print("These are integers (whole numbers)")
 
@@ -100,8 +114,10 @@ print(33)
 <li><input id="sample_real" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
 Real
 <pre class="sample" id="code_sample_real">
-# Real numbers can contain decimal places (e.g. 3.141)
-# Python calls reals floats or floating point numbers
+print """
+Real numbers can contain decimal places (e.g. 3.141)
+Python calls reals floats or floating point numbers
+"""
 
 print("These are reals (floating point or decimal numbers)")
 print(1.45)
@@ -114,7 +130,9 @@ print(1.0)
 <li><input id="sample_boolean" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
 Boolean
 <pre class="sample" id="code_sample_boolean">
-# Boolean means either True or False - nothing else.
+print """
+Boolean means either True or False - nothing else.
+"""
 
 print("These are booleans")
 print(True)
@@ -125,8 +143,10 @@ print(False)
 <li><input id="sample_character" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
 Character
 <pre class="sample" id="code_sample_character">
-# A character is one letter or symbol
-# In python there's no difference between the data type that stores one character or lots of characters: they're both stored in strings.
+print """
+A character is one letter or symbol
+In python there's no difference between the data type that stores one character or lots of characters: they're both stored in strings.
+"""
 
 print("These are characters (single letters or digits)")
 
@@ -141,8 +161,10 @@ print('"')
 <li><input id="sample_string" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
 String
 <pre class="sample" id="code_sample_string">
-# A string is one or more letter or symbol
-# In python there's no difference between the data type that stores one character or lots of characters: they're both stored in strings.
+print """
+A string is one or more letter or symbol
+In python there's no difference between the data type that stores one character or lots of characters: they're both stored in strings.
+"""
 
 print("These are strings (one or more characters)")
 print("Hello")
@@ -162,12 +184,13 @@ print("12345")
                 Variable declaration
                 </li>
                 <pre class="sample" id="code_sample_variable_declaration">
-""" 
+print """ 
 Variables store data that might change while the program runs.
 Variables in python should be given a suitable name that describes the data stored inside. 
 Choosing variable names carefully (rather than variable1 or thingy) makes your code easier to understand. 
 You should follow the PEP8 convention for choosing variable names: lowercase_words_separated_by_underscores
 """
+
 # integer variable
 age = 8
 
@@ -196,7 +219,7 @@ print "String variable:", user_name
                 Constant declaration
                 </li>
                 <pre class="sample" id="code_sample_constant_declaration">
-""" 
+print """ 
 Constants store data that you set in your code and never change while the program runs.
 Constants in python should be given a suitable name that describes the data stored inside. 
 Choosing constant names carefully (rather than variable1 or thingy) makes your code easier to understand. 
@@ -229,8 +252,10 @@ print "String constant:", USER_NAME
                 Assignment
                 </li>
                 <pre class="sample" id="code_sample_assignment">
-# Assignment means setting the value of a variable.
-# This means that the variable stores that value so it can be used or changed later.
+print """
+Assignment means setting the value of a variable.
+This means that the variable stores that value so it can be used or changed later.
+"""
 
 # Assign (store) the real number 3.141 into a constant called PI
 PI = 3.141
@@ -250,8 +275,10 @@ print area
                 Definite iteration
                 </li>
                 <pre class="sample" id="code_sample_definite_iteration">
-# Iteration means looping through each of multiple values
-# Definite iteration means you know in advance exactly how many times the loop will repeat.
+print """
+Iteration means looping through each of multiple values
+Definite iteration means you know in advance exactly how many times the loop will repeat.
+"""
 
 # Display each letter of the alphabet
 for letter in "abcdefghijklmnopqrstuvwxyz":
@@ -270,8 +297,10 @@ for i in range(100):
                 Indefinite iteration
                 </li>
                 <pre class="sample" id="code_sample_indefinite_iteration">
-# Iteration means looping (repeating) multiple times
-# Indefinite iteration means you don't know in advance exactly how many times the loop will repeat
+print """
+Iteration means looping (repeating) multiple times
+Indefinite iteration means you don't know in advance exactly how many times the loop will repeat
+"""
 
 # keep looping until the user types "exit"
 while raw_input("Type exit to quit") != "exit":
@@ -302,8 +331,10 @@ for day in days:
                 Selection
                 </li>
                 <pre class="sample" id="code_sample_selection">
-# Selection happens when your program makes a choice between doing one thing or another.
-# In python, "if" lets you run code based on the answer to a question / condition.
+print """
+Selection happens when your program makes a choice between doing one thing or another.
+In python, "if" lets you run code based on the answer to a question / condition.
+"""
 
 # choose a random number 
 import random
@@ -323,8 +354,10 @@ else:
                 Nexted selection
                 </li>
                 <pre class="sample" id="code_sample_nested_selection">
-# Selection means making your code only run if a condition is met.
-# Nested selection means an if statement inside an if statement - checking to see if two conditions are met.
+print """
+Selection means making your code only run if a condition is met.
+Nested selection means an if statement inside an if statement - checking to see if two conditions are met.
+"""
 
 str_number = raw_input("Please enter a number over 100")
 if str_number.isdigit():
@@ -343,8 +376,10 @@ else:
                 Subroutine
                 </li>
                 <pre class="sample" id="code_sample_subroutine">
-# A subroutine is a section of code that you can re-use more than once. This makes your code more efficient as you end up writing less code.
-# You have to give each subroutine a name. This can help your code be more readable.
+print """
+A subroutine is a section of code that you can re-use more than once. This makes your code more efficient as you end up writing less code.
+You have to give each subroutine a name. This can help your code be more readable.
+"""
 
 # import the turtle module to draw shapes
 import turtle
@@ -369,10 +404,180 @@ draw_square(0, 0, 10)
 # call the subroute again, drawing a square at (100,100)
 draw_square(100,100, 30)
 </pre>
+
+<li><input id="sample_identifier_names" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+Choosing identifier names
+</li>
+<pre class="sample" id="code_sample_identifier_names">
+print """
+An identifier name is the name of a variable, constant, function or procedure.
+In order to make your code consistent and easy to understand / maintain, you should name your variables / constants in a way that describes the data that they store
+Similarly, you should name procedures or functions in a way that describes what those subroutines do.
+
+For further info, read the Python Style Guide (PEP8): https://www.python.org/dev/peps/pep-0008/
+"""
+
+# bad examples:
+variable1 = "Hello"
+n = "Bob"
+number = 27
+
+# better examples, but not in line with PEP8
+EnglishGreeting = "Hello"
+Name = "Bob"
+ageOfPerson = 27
+
+# advised way of doing things according to PEP8
+english_greeting = "Hello"
+name = "Bob"
+age_of_person = 27
+</pre>
              </ul>
+             <li data-role="collapsible" data-iconpos="right" data-shadow="true" data-corners="true">
+            	<h2>Operators</h2>
+            	<ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
+                    <li><input id="sample_arithmetic_operators" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+                    Arithmetic operators
+<pre class="sample" id="code_sample_arithmetic_operators">
+print """
+"""
+
+</pre>
+                    </li>
+                    
+                    <li><input id="sample_relational_operators" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+                    Relational operators
+<pre class="sample" id="code_sample_relational_operators">
+print """
+"""
+
+</pre>
+                    </li>
+                    
+                    <li><input id="sample_boolean_operators" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+                    Boolean operators
+<pre class="sample" id="code_sample_boolean_operators">
+print """
+"""
+
+</pre>
+                    </li>
+                </ul>  
                 
+                <li data-role="collapsible" data-iconpos="right" data-shadow="true" data-corners="true">
+            	<h2>Data structures</h2>
+            	<ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
+                    <li><input id="sample_arrays" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+                    Arrays (lists)
+<pre class="sample" id="code_sample_arrays">
+print """
+"""
+
+</pre>
+                    </li>
+                    
+                    <li><input id="sample_records" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+                    Records (dictionaries)
+<pre class="sample" id="code_sample_records">
+print """
+"""
+
+</pre>
+                    </li>
+                    
+                </ul> 
+                
+                <li data-role="collapsible" data-iconpos="right" data-shadow="true" data-corners="true">
+            	<h2>Input / Output</h2>
+            	<ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
+                    <li><input id="sample_keyboard_user_input" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+                    User input from keyboard
+<pre class="sample" id="code_sample_keyboard_user_input">
+print """
+"""
+
+</pre>
+                    </li>
+                    
+                    <li><input id="sample_display_to_screen" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+                    Output to screen
+<pre class="sample" id="code_sample_display_to_screen">
+print """
+"""
+
+</pre>
+                    </li>
+                    
+                    <li><input id="sample_file_io" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+                    Reading from and writing to text files
+<pre class="sample" id="code_sample_file_io">
+print """
+"""
+
+</pre>
+                    </li>
+                </ul>
+                
+                <li data-role="collapsible" data-iconpos="right" data-shadow="true" data-corners="true">
+            	<h2>String handling</h2>
+            	<ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
+                    <li><input id="sample_string_length" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+                    String length
+<pre class="sample" id="code_sample_string_length">
+print """
+"""
+
+</pre>
+                    </li>
+                    
+                    <li><input id="sample_string_position" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+                    String position
+<pre class="sample" id="code_sample_string_position">
+print """
+"""
+
+</pre>
+                    </li>
+                    
+                    <li><input id="sample_substring" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+                    Substring
+<pre class="sample" id="code_sample_substring">
+print """
+"""
+
+</pre>
+                    </li>
+                    
+                    <li><input id="sample_string_concatenation" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+                    String concatenation
+<pre class="sample" id="code_sample_string_concatenation">
+print """
+"""
+
+</pre>
+                    </li>
+                    
+                    <li><input id="sample_string_char_conversion" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+                    Character conversion
+<pre class="sample" id="code_sample_string_char_conversion">
+print """
+"""
+
+</pre>
+                    </li>
+                    
+                    <li><input id="sample_string_conversions" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+                    String conversions
+<pre class="sample" id="code_sample_string_conversions">
+print """
+"""
+
+</pre>
+                    </li>
+                </ul>
                 
          </li>
+         
     </ul>
     
     <h2>Credits</h2>
@@ -383,18 +588,7 @@ draw_square(100,100, 30)
     <p>Python touch also uses <a href="https://jquery.org/license/">jQuery Mobile</a> which is released under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a></p>
     <p>The ability to load / save code hidden in an image uses the <a href="http://www.peter-eigenschink.at/projects/steganographyjs/">steganography</a> library by Peter Eigenschink which is released under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT</a> and <a href="http://en.wikipedia.org/wiki/Beerware">Beerware</a> licence.</p>
     
-    <div id="ad">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- Python touch -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-3910402064044077"
-     data-ad-slot="8642424001"
-     data-ad-format="auto"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-</div>
+    
     </div>
   </div>
 </div> 
