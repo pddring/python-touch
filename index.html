@@ -18,7 +18,7 @@
   <div data-role="header">
     <div data-role="navbar" id="tabs">
       <ul>
-        <li><a href="#home" data-icon="home">Home</a></li>
+        <li><a href="#home" data-icon="home">Samples</a></li>
         <li><a href="#code" data-icon="gear">Code</a></li>
       </ul>
     </div>
@@ -440,8 +440,35 @@ age_of_person = 27
                     Arithmetic operators
 <pre class="sample" id="code_sample_arithmetic_operators">
 print """
+An operator lets perform an action (or operation) on some data
+An arithmetic operator means performing an addition / subtraction / multiplication or division on some numbers
 """
 
+# addition
+print "+ is the addition operator"
+answer = 10 + 100
+print "10 plus 100 = ", answer
+
+# subtraction
+print "- is the subtraction operator"
+answer = 100 - 10
+print "100 minus 10 = ", answer
+
+# multiplication
+print "* is the multiplication operator"
+answer = 10 * 10
+print "10 times 10 = ", answer
+
+# real division
+print "/ is the division operator"
+answer = 50.0 / 7.0
+print "50 divided by 7 = ", answer
+
+# integer division
+print "% is the modulo operator (used to find the remainder after an integer division)"
+answer = 50 / 7
+remainder = 50 % 7
+print "50 divided by 7 is", answer, "with a remainder of", remainder
 </pre>
                     </li>
                     
@@ -449,8 +476,38 @@ print """
                     Relational operators
 <pre class="sample" id="code_sample_relational_operators">
 print """
+An operator lets perform an action (or operation) on some data
+A relational operator means comparing two pieces of data 
+
+This sample asks the user to type in a number and then compares that number to the number 10
 """
 
+# ask the user to type in a number
+user_number = int(raw_input("Please enter a number"))
+
+# equal to
+if user_number == 10:
+    print "Your number is equal to 10"
+
+# not equal to
+if user_number != 10:
+    print "Your number is not equal to 10"
+    
+# less than
+if user_number < 10:
+    print "Your number is less than 10"
+    
+# greater than
+if user_number > 10:
+    print "Your number is greater than 10"
+
+# less than or equal to
+if user_number <= 10:
+    print "Your number is less than or equal to 10"
+    
+# greater than or equal to
+if user_number >= 10:
+    print "Your number is greater than or equal to 10"
 </pre>
                     </li>
                     
@@ -458,7 +515,35 @@ print """
                     Boolean operators
 <pre class="sample" id="code_sample_boolean_operators">
 print """
+An operator lets perform an action (or operation) on some data
+Boolean data is either something that is True or False.
+A boolean operator can combine or change boolean data (and / or / not)
+
+This sample asks the user if they are hungry and/or thirsty then analyses the answers
 """
+
+# ask the user if they're hungry
+hungry = raw_input("Please type yes if you're hungry")
+
+# check if they type in "yes"
+bool_hungry = hungry == "yes"
+
+# Check if the user is thirsty
+bool_thirsty = raw_input("Please type yes if you're thirsty") == "yes"
+
+# show results
+print "Hungry:", bool_hungry
+print "Thirsty", bool_thirsty
+
+# NOT
+print "NOT hungry:", not bool_hungry
+print "NOT thirsty:" , not bool_thirsty
+
+# AND
+print "Hungry AND thirsty:", bool_hungry and bool_thirsty
+
+# OR
+print "Hungry OR thirsty:", bool_hungry or bool_thirsty
 
 </pre>
                     </li>
@@ -471,8 +556,29 @@ print """
                     Arrays (lists)
 <pre class="sample" id="code_sample_arrays">
 print """
+A list in python is an array: it can stores  more than one pieces of data in order.
+
+A one dimensional array is a single list.
+A two dimensional array is a list of different lists
 """
 
+# list of animals
+animals = ["dog", "cat", "donkey", "chicken"]
+
+# loop through each item in list
+for animal in animals:
+    print "Old McDonald had a farm, E-i-e-i-oh"
+    print "And on that farm he had a", animal, "e-i-e-i-oh"
+    
+# You can think of strings as an array of characters.
+# e.g. "dog" is pretty much the same as ["d", "o", "g"]
+
+
+print "The first letter of the first animal is:", animals[0][0]
+
+print "The first letter of the last animal is", animals[-1][0]
+
+print "The 2nd letter of the 3rd animal is", animals[1][2]
 </pre>
                     </li>
                     
@@ -480,7 +586,30 @@ print """
                     Records (dictionaries)
 <pre class="sample" id="code_sample_records">
 print """
+A dictionary in python is a record: it can structure data in a way so that linked data is stored together
+
+A dictionary works with pairs of keys and values: you look up a key to find a value.
+This works the same way as an old fashioned paper dictionary: you look up a word (key) to find its meaning (value)
 """
+
+# create a dictionary for each animal
+dog = {"name": "dog", "noise": "woof"}
+cat = {"name": "cat", "noise": "miaow"}
+donkey = {"name": "donkey", "noise": "eee-or"}
+chicken = {"name": "chicken", "noise": "cluck"}
+
+# list of animals
+animals = [dog, cat, donkey, chicken]
+
+# loop through each dictionary in list
+for animal in animals:
+    print "Old McDonald had a farm, E-i-e-i-oh"
+    print "And on that farm he had a", animal["name"], "e-i-e-i-oh"
+    print "With a", animal["noise"], animal["noise"], "here and a", animal["noise"], animal["noise"], "there"
+    print "Here a", animal["noise"], "there a", animal["noise"], "everywhere a", animal["noise"], animal["noise"]
+    print "Old McDonald had a farm, E-i-e-i-oh"
+    print
+    
 
 </pre>
                     </li>
@@ -598,7 +727,7 @@ print """
     <div data-role="navbar">
       <ul>
         <li><a href="#shortcutsPanel" data-icon="arrow-l">Shortcuts</a></li>
-        <li><a href="#home" data-icon="home">Home</a></li>
+        <li><a href="#home" data-icon="home">Samples</a></li>
         <li><a href="#code" data-icon="gear">Code</a></li>
         <li><a id="btn_RunPanel" href="#run" data-icon="check">Run</a>
             <span id="quick_run_options">
@@ -789,6 +918,7 @@ for i in range(2):
     <div id="code_output_parent">
     </div>
 </div>
+<span class="debug_status">Press Run to debug / run your code</span>
 
   </div>
   
@@ -799,7 +929,7 @@ for i in range(2):
 	<div data-role="header">
         <div data-role="navbar">
           <ul>
-            <li><a href="#home" data-icon="home">Home</a></li>
+            <li><a href="#home" data-icon="home">Samples</a></li>
             <li><a href="#code" data-icon="gear">Code</a></li>
           </ul>
         </div>
@@ -820,7 +950,7 @@ for i in range(2):
 	<div data-role="header">
         <div data-role="navbar">
           <ul>
-            <li><a href="#home" data-icon="home">Home</a></li>
+            <li><a href="#home" data-icon="home">Samples</a></li>
             <li><a href="#code" data-icon="gear">Code</a></li>
           </ul>
         </div>
@@ -839,7 +969,7 @@ for i in range(2):
   <div data-role="header">
     <div data-role="navbar">
       <ul>
-        <li><a href="#home" data-icon="home">Home</a></li>
+        <li><a href="#home" data-icon="home">Samples</a></li>
         <li><a href="#code" data-icon="gear">Code</a></li>
       </ul>
     </div>
@@ -851,7 +981,7 @@ for i in range(2):
 	    <input type="button" class="btn" value="Run all lines" id="btn_Run" data-icon="forward" data-mini="true" data-inline="true">
     	<input type="button" class="btn" value="Step" id="btn_DebugStep" data-icon="bullets" data-mini="true" data-inline="true">
         <input type="button" class="btn" value="Reset" id="btn_DebugReset" data-icon="back" data-mini="true" data-inline="true">
-    	<span id="debug_status">Press "Run all lines" to start the program</span>
+    	<span class="debug_status">Press "Run all lines" to start the program</span>
     	<div id="debug_variables" data-role="collapsible" data-collapsed="false">
         	<h2>Variables</h2>
             <div id="debug_variables_table"></div>
