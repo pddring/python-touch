@@ -7,7 +7,7 @@
 <script src="lib/jquerymobile.js"></script>
 <script src="lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
 <script src="lib/lib.js" type="text/javascript" charset="utf-8"></script>
-<script src="lib/skulpt/skulpt.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="lib/skulpt/skulpt.js" type="text/javascript" charset="utf-8"></script>
 <script src="lib/steganography.js" type="text/javascript" charset="utf-8"></script>
 <script src="lib/skulpt/skulpt-stdlib.js" type="text/javascript" charset="utf-8"></script>
 
@@ -623,7 +623,16 @@ for animal in animals:
                     User input from keyboard
 <pre class="sample" id="code_sample_keyboard_user_input">
 print """
+Most programs need to ask the user questions and let them type in their answers.
+
+This sample asks the user what their name is and responds by saying hello
 """
+
+# ask question and save answer into variable called name
+name = raw_input("What is your name?")
+
+# display greeting
+print "Hello", name
 
 </pre>
                     </li>
@@ -632,7 +641,19 @@ print """
                     Output to screen
 <pre class="sample" id="code_sample_display_to_screen">
 print """
+Most programs need to display text or data to the screen.
+
+This sample shows how to display text and the contents of a variable
 """
+
+# create a variable called hello and save the string "Bonjour" to it
+hello = "Bonjour"
+
+# display the string "hello"
+print "hello"
+
+# display the contents of the variable called hello
+print hello
 
 </pre>
                     </li>
@@ -641,7 +662,31 @@ print """
                     Reading from and writing to text files
 <pre class="sample" id="code_sample_file_io">
 print """
+The data stored in variables is lost when a program stops running. 
+Saving data to a file allows your program to store is so that it can read next time it runs. 
+
+This sample asks the user a question and shows what they typed in last time they ran the program
 """
+
+try:
+	# open data.txt in read mode
+	input_file = open("data.txt", "r")
+	previous_answer = input_file.read()
+	input_file.close()
+	
+except:
+	previous_answer = "Could not open data.txt. Perhaps this is the first time you've run this program?"
+
+# ask for highligh of the day
+this_answer = raw_input("What's been the highlight of your day today?")
+
+# save answer
+output_file = open("data.txt", "w")
+output_file.write(this_answer)
+output_file.close()
+
+print "Thank you. Your answer has been saved. Last time you ran the program you said the highlight of your day was:"
+print previous_answer
 
 </pre>
                     </li>
@@ -654,7 +699,21 @@ print """
                     String length
 <pre class="sample" id="code_sample_string_length">
 print """
+A string is one or more characters (letters or symbols) in order, usually in a way that spells out a word or sentence, but it can store any text.
+
+The length of a string is the number of characters. E.g. the length of "hello" is 5 because there are 5 characters
+
+This sample asks the user to type in a string. It then counts how many characters are in that string.
 """
+
+# ask user to type in a string
+user_string = raw_input("Type in anything here:")
+
+# calculate the length
+length = len(user_string)
+
+# display the result
+print "The length of the string you typed in is:", length
 
 </pre>
                     </li>
@@ -663,8 +722,20 @@ print """
                     String position
 <pre class="sample" id="code_sample_string_position">
 print """
+A string is one or more characters (letters or symbols) in order, usually in a way that spells out a word or sentence, but it can store any text.
+
+This sample asks the user to type in a string containing the letter "a". 
+It then displays where the letter "a" is first found in the string that the user entered.
 """
 
+# ask user to type in a string
+user_string = raw_input("Type in anything here that contains the letter 'a':")
+
+# calculate the first position of 'a'
+position = user_string.index('a')
+
+# display the result
+print "The letter a first appears as character in position", position
 </pre>
                     </li>
                     
@@ -672,8 +743,28 @@ print """
                     Substring
 <pre class="sample" id="code_sample_substring">
 print """
+A string is one or more characters (letters or symbols) in order, usually in a way that spells out a word or sentence, but it can store any text.
+
+A substring is some of the characters that makes up part of a string. E.g. "hell" is a substring of "hello"
+
+This sample asks the user to choose the first and last characters of a nursery rhyme.
+It then displays the substring between the first and last characters that they choose
 """
 
+rhyme = """Jack and Jill went up the hill
+To fetch a pail of water.
+Jack fell down and broke his crown,
+And Jill came tumbling after"""
+
+length = len(rhyme)
+
+print "Here's a nursery rhyme that is", length, "characters long:"
+print rhyme
+
+start = int(raw_input("Choose substring start number:"))
+end = int(raw_input("Choose substring end number:"))
+
+print "Here's your substring:", rhyme[start:end]
 </pre>
                     </li>
                     
@@ -681,8 +772,29 @@ print """
                     String concatenation
 <pre class="sample" id="code_sample_string_concatenation">
 print """
+A string is one or more characters (letters or symbols) in order, usually in a way that spells out a word or sentence, but it can store any text.
+
+Concatenation means joining together. E.g. concatenating the strings "im" and "possible" makes the string "impossible"
+
+This sample chooses 10 random letters and joins them together to make a secure password
 """
 
+# make a string with all the possible characters in
+characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXVZ1234567890!$%^&*()"
+
+# import the random module
+import random
+
+# start with an empty password
+password = ""
+
+# loop 10 times, using the variable i to count from 0 to 9
+for i in range(10):
+	# concatenate (add on) a random character on to the end of the password
+	password = password + random.choice(characters)
+
+print "A random 10 digit password for you to us is:", password
+	
 </pre>
                     </li>
                     
@@ -690,7 +802,22 @@ print """
                     Character conversion
 <pre class="sample" id="code_sample_string_char_conversion">
 print """
+Characters are single letters, digits or symbols.
+Each character in the US alphabet is stored as an ASCII number. 
+E.g. The character "A" is the decimal ASCII number 65 and "a" is the decimal ASCII number 97
+
+You can use ord() and chr() to convert between characters and ASCII numbers
+
+This sample lets the user convert to and from characters / ascii numbers
 """
+
+number = int(raw_input("Please enter a number between 0 and 127 to convert to a character:"))
+character = chr(number)
+print "The ASCII number", number, "represents the character", character
+
+character = raw_input("Please enter a single character:")
+number = ord(character)
+print "This character", character, "is represented by the ASCII number", number
 
 </pre>
                     </li>
@@ -728,7 +855,10 @@ print """
       <ul>
         <li><a href="#shortcutsPanel" data-icon="arrow-l">Shortcuts</a></li>
         <li><a href="#home" data-icon="home">Samples</a></li>
-        <li><a href="#code" data-icon="gear">Code</a></li>
+        <li><a href="#code" data-icon="gear">Code</a>
+        <span id="filename_chooser"><select id="filename" data-mini="true"><option>python_touch.py</option><option>Manage files</option></select></span>
+        </li>
+        	
         <li><a id="btn_RunPanel" href="#run" data-icon="check">Run</a>
             <span id="quick_run_options">
             <select id="quick_run_action">
