@@ -826,13 +826,196 @@ print "This character", character, "is represented by the ASCII number", number
                     String conversions
 <pre class="sample" id="code_sample_string_conversions">
 print """
+A string is data made up of one or more characters e.g. "hello"
+
+This sample converts strings to integers / real (float)  data types and vice versa.
 """
+
+string_number = "100"
+print "When you multiply the string '100' by two you get", string_number * 2
+
+# convert from string to int
+int_number = int(string_number)
+print "When you multiply the integer 100 by two you get", int_number * 2
+
+# convert from string to real
+float_number = float(string_number)
+print "When you multiply the float / real number 100.00 by 2.00 you get", float_number * 2.0
+
+print "You can convert any data type to a string using the str() function"
+
+# convert to string
+print "Here are some examples: ", str(2.0), str(1), str(True)
 
 </pre>
                     </li>
                 </ul>
+				
+				<li data-role="collapsible" data-iconpos="right" data-shadow="true" data-corners="true">
+            	<h2>Choosing at random</h2>
+            	<ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
+                    <li><input id="sample_random_number" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+                    Random numbers
+<pre class="sample" id="code_sample_random_number">
+print """
+Getting a completely logical machine such as a computer to choose a random number is a surprisingly complex task.
+Thanfully, Python has a random module that makes it really easy.
+
+This sample shows how to choose a random number between a minimum and maximum value
+"""
+
+# load random module
+import random
+
+print "Random number between 1 and 10:"
+print random.randint(1,10)
+
+print "Random number between 0.5 and 0.75:"
+print random.uniform(0.5, 0.75)
+
+</pre>
+                    </li>
+				</ul>
+				
+				<li data-role="collapsible" data-iconpos="right" data-shadow="true" data-corners="true">
+            	<h2>Sub routines (procedures and functions)</h2>
+            	<ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
+                    <li><input id="sample_procedure" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+                    Procedures
+<pre class="sample" id="code_sample_procedure">
+print """
+A procedure is a section of code that has been given a name that you can re-use.
+They can make your code easier to read (because you give sections of code a descriptive name)
+They can make your code more efficient (because you can re-use sections of code)
+
+This sample uses a procedure that displays a random insult to the user.
+"""
+
+# load random module
+import random
+
+# define the insult procedure
+def show_insult():
+	# make lists used to generate random insult
+	adjectives = ['fat', 'funny', 'silly', 'wobbly', 'smelly', 'stinky', 'big', 'small']
+	nouns = ['face', 'nose', 'ears', 'arms', 'belly', 'toes', 'hair', 'breath']
+	
+	# display insult
+	print random.choice(adjectives), random.choice(nouns)
+
+	
+# show insult
+print "Here's a random insult:"
+show_insult()
+print "Here's another"
+show_insult()
+
+# show 10 more
+print "Here's 10 more:"
+for i in range(10):
+	show_insult()
+</pre>
+                    </li>
+					
+					<li><input id="sample_procedure_param" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+                    Procedures with parameters
+<pre class="sample" id="code_sample_procedure_param">
+print """
+A procedure is a section of code that has been given a name that you can re-use.
+A parameter is a variable that you give to the procedure that determines what it does or how it works.
+
+Parameters let you customise procedures so that they can be used for more than one purpose.
+
+This sample uses a procedure that displays a set number of random insults to the user.
+"""
+
+# load random module
+import random
+
+# define the insult procedure
+def show_insult(how_many_times):
+	# make lists used to generate random insult
+	adjectives = ['fat', 'funny', 'silly', 'wobbly', 'smelly', 'stinky', 'big', 'small']
+	nouns = ['face', 'nose', 'ears', 'arms', 'belly', 'toes', 'hair', 'breath']
+	
+	# display insult
+	print "Here are your", how_many_times, "insults:"
+	
+	for i in range(how_many_times):
+		print random.choice(adjectives), random.choice(nouns)
+
+	
+# show 3 insults
+show_insult(3)
+
+# show 10 insults
+show_insult(10)
+</pre>
+                    </li>
+					
+					<li><input id="sample_function" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+                    Functions that return a value
+<pre class="sample" id="code_sample_function">
+print """
+A procedure is a section of code that has been given a name that you can re-use.
+A function is like a procedure but it returns a value that you can then use later in your program.
+
+Functions can take parameters just like procedures
+
+This sample uses a function to let the user choose one of a set number of options
+"""
+
+# define a function that lets the user choose from a list of options
+def choose_from(prompt, options):
+	
+	# keep looping until the user chooses a valid option
+	while True:
+		
+		# use a dictionary to keep track of which number each of the options are
+		number_options = {}
+		
+		# display the prompt message
+		print prompt
+		
+		# loop through and display each option with its own number
+		count = 1
+		for option in options:
+			print count, ":", option
+			
+			# add to dictionary: pair up the number with the option
+			number_options[str(count)] = option
+			
+			# increase count by one
+			count += 1
+		
+		# ask user to choose an option
+		user_choice = raw_input("Which option?")
+		
+		# check if they typed in an option longhand
+		if user_choice in options:
+            
+            # return what the user typed		    
+			return user_choice
+			
+		# check if they typed in a number
+		if user_choice in number_options:
+		    
+		    # return the option the user chose with their number
+			return number_options[user_choice]
+		
+		
+# ask the user to choose between potatoes and carrots. Save the return value into veg		
+veg = choose_from("What's your favourite vegetable?", ("Potatoes", "Carrots"))
+
+# ask the user to choose between oranges, apples and pineapples. Save the return value into fruit
+fruit = choose_from("What's your favourite fruit?", ("Orange", "Apple", "Pineapple"))
+
+
+# display their choices
+print "You chose", fruit, "and", veg	
+</pre>
+                    </li>
                 
-         </li>
          
     </ul>
     
