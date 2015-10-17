@@ -1,7 +1,21 @@
 /* CSS Document */
 
 .mainlogo {
-	float:right;
+	display:block;
+	margin:0 auto;
+	width: 398px;
+
+}
+
+.sample_thumb {
+	background-image:url('images/sample_bk.png');
+	width:398px;
+	height:279px;
+	display:table;
+	background-repeat:no-repeat;
+	padding-left:40px;
+	padding-top:30px;
+	margin:0 auto;
 }
 
 #editor { 
@@ -128,6 +142,7 @@ th {
 	z-index:4000;
 	opacity:0.6;
 	padding:10px;
+	max-width:50%;
 	border-radius:10px;
 	background-color:#FFF;
 	border-style:solid;

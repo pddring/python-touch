@@ -39,10 +39,10 @@
 </div>
     <img src="media/logo.png" class="mainlogo" id="mainlogo"/><p>Python Touch is designed for students to write python code on a tablet computer</p>
     <p>It's a very long way from finished yet...</p>
-    <h3>These samples are designed to cover the <a href="http://www.aqa.org.uk/subjects/ict-and-computer-science/gcse/computer-science-8520">AQA GCSE Computer Science (from 2016)</a></h3>
-    <ul data-role="listview" class="ui-listview-outer" data-inset="true">
+	<h1>Samples</h1>
+	<ul data-role="listview" class="ui-listview-outer" data-inset="true">
     	<li data-role="collapsible" data-iconpos="right" data-shadow="true" data-corners="true">
-            <h2>Quick Start</h2>
+            <h2><div class="sample_thumb">Quick Start</div></h2>
             <ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
                 <li><input id="sample_hello_world" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
                 Hello World
@@ -91,7 +91,14 @@ else:
 </li>
             </ul>
         </li>
-        <li data-role="collapsible" data-iconpos="right" data-shadow="true" data-corners="true">
+		<li data-role="collapsible" data-iconpos="right" data-shadow="true" data-corners="true">
+			<h2><div class="sample_thumb">AQA GCSE Computer Science from 2016</div></h2>
+			<p>These samples are designed to cover the <a href="http://www.aqa.org.uk/subjects/ict-and-computer-science/gcse/computer-science-8520">AQA GCSE Computer Science (from 2016)</a></p>
+			<p>These resources are not affiliated to or endorsed by AQA in any way.</p>
+			
+			<ul data-role="listview" class="ui-listview-outer" data-inset="true">
+			
+			<li data-role="collapsible" data-iconpos="right" data-shadow="true" data-corners="true">
             <h2>Data Types</h2>
             <ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
 
@@ -859,7 +866,7 @@ print "Here are some examples: ", str(2.0), str(1), str(True)
 <pre class="sample" id="code_sample_random_number">
 print """
 Getting a completely logical machine such as a computer to choose a random number is a surprisingly complex task.
-Thanfully, Python has a random module that makes it really easy.
+Thankfully, Python has a random module that makes it really easy.
 
 This sample shows how to choose a random number between a minimum and maximum value
 """
@@ -994,7 +1001,7 @@ def choose_from(prompt, options):
 		# check if they typed in an option longhand
 		if user_choice in options:
             
-            # return what the user typed		    
+            # return what the user 
 			return user_choice
 			
 		# check if they typed in a number
@@ -1015,8 +1022,10 @@ fruit = choose_from("What's your favourite fruit?", ("Orange", "Apple", "Pineapp
 print "You chose", fruit, "and", veg	
 </pre>
                     </li>
+			</ul>
+		</li>
                 
-         
+         </ul>
     </ul>
     
     <h2>Credits</h2>
