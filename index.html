@@ -509,19 +509,19 @@ if user_number != 10:
     print "Your number is not equal to 10"
     
 # less than
-if user_number < 10:
+if user_number &lt; 10:
     print "Your number is less than 10"
     
 # greater than
-if user_number > 10:
+if user_number &gt; 10:
     print "Your number is greater than 10"
 
 # less than or equal to
-if user_number <= 10:
+if user_number &lt;= 10:
     print "Your number is less than or equal to 10"
     
 # greater than or equal to
-if user_number >= 10:
+if user_number &gt;= 10:
     print "Your number is greater than or equal to 10"
 </pre>
                     </li>
@@ -705,6 +705,64 @@ print previous_answer
 
 </pre>
                     </li>
+                    
+                    <li><input id="sample_csv_write" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+                    Exporting data to a CSV file
+<pre class="sample" id="code_sample_csv_write">
+print """
+Python can write data to CSV files which can be easily imported into a spreadsheet (e.g. Excel)
+
+This sample exports a file called fruit.csv with the colours of different fruit.
+"""
+# Store data in a 2D list (a list of lists)
+data = [["Fruit", "Colour"],
+        ["Tomato", "Red"],
+        ["Lemon", "Yellow"]]
+        
+# import comma separated values module
+import csv
+
+# open file in binary write mode
+file_object = open("fruit.csv", "wb")
+
+# create csv writer object
+writer = csv.writer(file_object)
+
+# write data to file
+writer.writerows(data)
+
+# close file
+file_object.close()
+</pre>
+                    </li>
+                    
+<li><input id="sample_csv_write" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
+                    Importing data from a CSV file
+<pre class="sample" id="code_sample_csv_write">
+print """
+Python can read data from CSV files which can be easily exported from a spreadsheet (e.g. Excel)
+
+This sample loads data from a file called fruits.csv (Check samples to create a sample of this file).
+"""
+
+# import comma separated values module
+import csv
+
+# open file in binary read mode
+file_object = open("fruit.csv", "rb")
+
+# create csv reader object
+reader = csv.reader(file_object)
+
+# loop through each line in the file
+for row in reader:
+    print row
+
+# close file
+file_object.close()
+</pre>
+                    </li>
+                  
                 </ul>
                 
                 <li data-role="collapsible" data-iconpos="right" data-shadow="true" data-corners="true">
@@ -795,7 +853,7 @@ This sample chooses 10 random letters and joins them together to make a secure p
 """
 
 # make a string with all the possible characters in
-characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXVZ1234567890!$%^&*()"
+characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXVZ1234567890!$%^&amp;*()"
 
 # import the random module
 import random
