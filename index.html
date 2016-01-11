@@ -64,13 +64,32 @@ print("Hello world")
                 <li><input id="sample_draw" type="button" data-icon="action" data-inline="true" data-iconpos="notext" value="load" class="btn_sample">
                 Draw
 <pre class="sample" id="code_sample_draw">
-# procedure to say hello to a given person
-def say_hello(name):
-    print "Hello " + name
-    
-# loop through each name in the list and say hello
-for name in ["Anna", "Ben", "Charlie", "Dilbert"]:
-    say_hello(name)
+# import turtle drawing module
+import turtle 
+
+print "Click on Drawing Canvas to see turtle graphics"
+
+draw = turtle.Turtle()
+draw.penup()
+
+# draw text
+draw.color("#3978AE")
+draw.goto(0,20)
+draw.write("Python")
+
+draw.color("#FFD344")
+draw.goto(0,0)
+draw.write("Touch")
+
+# draw shape
+draw.goto(-30, -20)
+draw.pendown()
+draw.color("black")
+for i in range(2):
+    draw.forward(100)
+    draw.left(90)
+    draw.forward(70)
+    draw.left(90)
     
 
 </pre>
